@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Robot.delete_all
+Robot.create(name: 'Cécile', fpga_adress:'0x70')
+
+Register.delete_all
+
+Gpio.delete_all

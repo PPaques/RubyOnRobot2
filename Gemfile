@@ -6,7 +6,15 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-
+# to use a worker to get states periodicly
+gem 'clockwork',  '~> 0.5.0'
+gem 'tzinfo',     '~> 0.3.35'
+# use for communication
+gem 'i2c', '~> 0.2.22'
+gem 'bootstrap-generators', '~> 2.3'
+gem 'jquery-rails'
+gem 'simple_form'
+gem 'haml-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -20,9 +28,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'bootstrap-sass', '~> 2.3.1.0'
 end
-
-gem 'jquery-rails'
-gem 'bootstrap-generators', '~> 2.3'
+  
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

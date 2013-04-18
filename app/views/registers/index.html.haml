@@ -1,0 +1,29 @@
+.page-header
+  = link_to new_register_path, :class => 'btn btn-primary' do
+    %i.icon-plus.icon-white
+    New Register
+  %h1 Listing registers
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Address
+      %th Value
+      %th Last value
+      %th
+      %th
+      %th
+
+  %tbody
+    - @registers.each do |register|
+      %tr
+        %td= register.name
+        %td= register.description
+        %td= register.address
+        %td= register.value
+        %td= register.last_value
+        %td= link_to 'Show', register
+        %td= link_to 'Edit', edit_register_path(register)
+        %td= link_to 'Destroy', register, :confirm => 'Are you sure?', :method => :delete

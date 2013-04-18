@@ -1,0 +1,21 @@
+.page-header
+  = link_to new_robot_path, :class => 'btn btn-primary' do
+    %i.icon-plus.icon-white
+    New Robot
+  %h1 Listing robots
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th Name
+      %th
+      %th
+      %th
+
+  %tbody
+    - @robots.each do |robot|
+      %tr
+        %td= robot.name
+        %td= link_to 'Show', robot
+        %td= link_to 'Edit', edit_robot_path(robot)
+        %td= link_to 'Destroy', robot, :confirm => 'Are you sure?', :method => :delete

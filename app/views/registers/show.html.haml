@@ -1,0 +1,20 @@
+.page-header
+  = link_to registers_path, :class => 'btn' do
+    %i.icon-list-alt
+    Back
+  = link_to edit_register_path(@register), :class => 'btn btn-primary' do
+    %i.icon-pencil.icon-white
+    Edit
+  %h1 Listing registers
+
+%dl
+  %dt Name:
+  %dd= @register.name
+  %dt Description:
+  %dd= @register.description
+  %dt Address:
+  %dd= @register.address
+  %dt Value:
+  %dd= @register.value
+  %dt Last value:
+  %dd= @register.last_value

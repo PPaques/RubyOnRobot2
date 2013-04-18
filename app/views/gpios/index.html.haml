@@ -1,0 +1,29 @@
+.page-header
+  = link_to new_gpio_path, :class => 'btn btn-primary' do
+    %i.icon-plus.icon-white
+    New Gpio
+  %h1 Listing gpios
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Pin
+      %th Direction
+      %th Robot
+      %th
+      %th
+      %th
+
+  %tbody
+    - @gpios.each do |gpio|
+      %tr
+        %td= gpio.name
+        %td= gpio.description
+        %td= gpio.pin
+        %td= gpio.direction
+        %td= gpio.robot_id
+        %td= link_to 'Show', gpio
+        %td= link_to 'Edit', edit_gpio_path(gpio)
+        %td= link_to 'Destroy', gpio, :confirm => 'Are you sure?', :method => :delete

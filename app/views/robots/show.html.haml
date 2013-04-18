@@ -1,0 +1,12 @@
+.page-header
+  = link_to robots_path, :class => 'btn' do
+    %i.icon-list-alt
+    Back
+  = link_to edit_robot_path(@robot), :class => 'btn btn-primary' do
+    %i.icon-pencil.icon-white
+    Edit
+  %h1 Listing robots
+
+%dl
+  %dt Name:
+  %dd= @robot.name

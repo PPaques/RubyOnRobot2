@@ -1,0 +1,20 @@
+.page-header
+  = link_to gpios_path, :class => 'btn' do
+    %i.icon-list-alt
+    Back
+  = link_to edit_gpio_path(@gpio), :class => 'btn btn-primary' do
+    %i.icon-pencil.icon-white
+    Edit
+  %h1 Listing gpios
+
+%dl
+  %dt Name:
+  %dd= @gpio.name
+  %dt Description:
+  %dd= @gpio.description
+  %dt Pin:
+  %dd= @gpio.pin
+  %dt Direction:
+  %dd= @gpio.direction
+  %dt Robot:
+  %dd= @gpio.robot_id

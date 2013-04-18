@@ -1,0 +1,10 @@
+.page-header
+  = link_to registers_path, :class => 'btn' do
+    %i.icon-list-alt
+    Back
+  = link_to @register, :class => 'btn btn-primary' do
+    %i.icon-info-sign.icon-white
+    Show
+  %h1 Editing register
+
+= render 'form'

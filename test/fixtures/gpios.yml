@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  description: MyText
+  pin: 1
+  direction: false
+  robot_id: 1
+
+two:
+  name: MyString
+  description: MyText
+  pin: 1
+  direction: false
+  robot_id: 1
