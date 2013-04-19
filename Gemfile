@@ -15,6 +15,7 @@ gem 'bootstrap-generators', '~> 2.3'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'haml-rails'
+gem 'nested_form'
 
 # Gems used only for assets and not required
 # in production environments by default.

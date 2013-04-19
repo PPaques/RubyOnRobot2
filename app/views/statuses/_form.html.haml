@@ -1,9 +1,36 @@
-= simple_form_for(@status, :defaults => { :input_html => { :class => 'input-xxlarge' } }) do |f|
+= simple_nested_form_for(@status, :defaults => { :input_html => { :class => 'input-xxlarge' } }) do |f|
   = f.error_notification
 
   .form-inputs
     = f.input :name
     = f.input :description
 
+    %h4 Registers
+    %table.table.table-striped.table-condensed#registers
+      = f.fields_for :registers, :wrapper => false do |register_form|
+        %tr.fields
+          %td= register_form.input :register_id, :collection => Register.all
+          %td= register_form.input :value
+          %td
+            = register_form.link_to_remove do
+              .btn.btn-mini.btn-danger Remove
+    
+    = f.link_to_add :registers, :data =>{:target => "#registers"} do
+      .btn.pull-right.btn-info Add a register status
+    .clearfix
+
+    %h4 Gpios
+    %table.table.table-striped.table-condensed#gpios
+      = f.fields_for :gpios, :wrapper => false do |gpio_form|
+        %tr.fields
+          %td= gpio_form.input :gpio_id, :collection => Gpio.all
+          %td= gpio_form.input :value
+          %td
+            = gpio_form.link_to_remove do
+              .btn.btn-mini.btn-danger Remove
+    
+    = f.link_to_add :gpios, :data =>{:target => "#gpios"} do
+      .btn.pull-right.btn-info Add a gpio status
+    .clearfix
   .form-actions
     = f.button :submit, :class => "btn-primary"

@@ -25,6 +25,8 @@ class StatusesController < ApplicationController
   # GET /statuses/new.json
   def new
     @status = Status.new
+    @status.gpios.build
+    @status.registers.build
 
     respond_to do |format|
       format.html # new.html.erb

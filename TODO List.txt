@@ -9,7 +9,9 @@ HIGH IMPORTANCE :
 - Objet Status_gpios      [19/04]
 - Objet operation         [19/04]
 - Objet Liste operation   [19/04]
+- Objet Working_job       [20/04]
 - Gestion Timer général   [20/04]
+
 
 
 MID IMPORTANCE :

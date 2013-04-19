@@ -1,6 +1,17 @@
 class StatusRegister < ActiveRecord::Base
-  attr_accessible :register, :value
+  attr_accessible :register_id, :value
 
-  has_one :register
-  belongs_to :status
+  belongs_to  :register
+  belongs_to  :status
+
+  validates :register, :value, :presence => true
+
+
+  def name
+    register.name
+  end
+
+  def address
+    address.name
+  end
 end

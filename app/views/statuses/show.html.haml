@@ -5,10 +5,34 @@
   = link_to edit_status_path(@status), :class => 'btn btn-primary' do
     %i.icon-pencil.icon-white
     Edit
-  %h1 Listing statuses
+  %h1 
+    Status :
+    = @status.name
 
 %dl
-  %dt Name:
-  %dd= @status.name
   %dt Description:
-  %dd= @status.description
+  %dd
+    %blockquote= @status.description
+
+.row-fluid
+  .span6
+    %h4 Registers
+    %table.table.table-striped.table-condensed.table-bordered
+      %tr 
+        %th Name
+        %th Value
+      - @status.registers.each do |register|
+        %tr
+          %td= register.register_id
+          %td= register.value 
+  .span6
+    %h4 Gpios
+    %table.table.table-striped.table-condensed.table-bordered
+      %tr 
+        %th Name
+        %th Value
+      - @status.gpios.each do |gpio|
+        %tr
+          %td= gpio.name
+          %td= gpio.value 
+
