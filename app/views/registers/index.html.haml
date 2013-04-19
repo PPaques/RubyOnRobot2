@@ -12,7 +12,7 @@
       %th Address
       %th Value
       %th Last value
-      %th
+      %th Default Value
       %th
       %th
 
@@ -24,6 +24,7 @@
         %td= register.address
         %td= register.value
         %td= register.last_value
+        %td= register.default_value
         %td= link_to 'Show', register
         %td= link_to 'Edit', edit_register_path(register)
         %td= link_to 'Destroy', register, :confirm => 'Are you sure?', :method => :delete

@@ -24,11 +24,11 @@
           = link_to "Robot Céc", "#", :class => "brand"
           .nav-collapse
             %ul.nav
-              %li.active
+              %li{:class => is_selected('robots')}
                 = link_to "Home", robots_path
-              %li
+              %li{:class => is_selected('registers')}
                 = link_to "Registers", registers_path
-              %li
+              %li{:class => is_selected('gpios')}
                 = link_to "Gpios", gpios_path
     .container
       - flash.each do |name, msg|

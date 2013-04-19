@@ -11,7 +11,8 @@
       %th Description
       %th Pin
       %th Direction
-      %th Robot
+      %th Value
+      %th Default Value
       %th
       %th
       %th
@@ -23,7 +24,8 @@
         %td= gpio.description
         %td= gpio.pin
         %td= gpio.direction
-        %td= gpio.robot_id
+        %td= gpio.value
+        %td= gpio.default_value
         %td= link_to 'Show', gpio
         %td= link_to 'Edit', edit_gpio_path(gpio)
         %td= link_to 'Destroy', gpio, :confirm => 'Are you sure?', :method => :delete

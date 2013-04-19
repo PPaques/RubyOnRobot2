@@ -41,6 +41,7 @@ class GpiosController < ApplicationController
   # POST /gpios.json
   def create
     @gpio = Gpio.new(params[:gpio])
+    @gpio.robot = Robot.first
 
     respond_to do |format|
       if @gpio.save

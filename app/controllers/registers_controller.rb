@@ -41,6 +41,7 @@ class RegistersController < ApplicationController
   # POST /registers.json
   def create
     @register = Register.new(params[:register])
+    @register.robot = Robot.first
 
     respond_to do |format|
       if @register.save

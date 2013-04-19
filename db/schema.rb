@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130418135145) do
+ActiveRecord::Schema.define(:version => 20130419180530) do
 
   create_table "gpios", :force => true do |t|
     t.string   "name"
@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(:version => 20130418135145) do
     t.integer  "pin"
     t.boolean  "direction"
     t.integer  "robot_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.boolean  "default_value"
+    t.boolean  "value"
   end
 
   create_table "registers", :force => true do |t|
@@ -29,9 +31,10 @@ ActiveRecord::Schema.define(:version => 20130418135145) do
     t.string   "address"
     t.string   "value"
     t.string   "last_value"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.integer  "robot_id"
+    t.string   "default_value"
   end
 
   create_table "robots", :force => true do |t|
