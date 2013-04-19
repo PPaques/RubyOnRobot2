@@ -1,0 +1,14 @@
+.page-header
+  = link_to statuses_path, :class => 'btn' do
+    %i.icon-list-alt
+    Back
+  = link_to edit_status_path(@status), :class => 'btn btn-primary' do
+    %i.icon-pencil.icon-white
+    Edit
+  %h1 Listing statuses
+
+%dl
+  %dt Name:
+  %dd= @status.name
+  %dt Description:
+  %dd= @status.description

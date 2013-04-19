@@ -30,6 +30,8 @@
                 = link_to "Registers", registers_path
               %li{:class => is_selected('gpios')}
                 = link_to "Gpios", gpios_path
+              %li{:class => is_selected('statuses')}
+                = link_to "Statuses", statuses_path
     .container
       - flash.each do |name, msg|
         = content_tag :div, :class => "alert #{name == :error ? "alert-error" : "alert-success" }" do

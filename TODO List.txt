@@ -1,19 +1,31 @@
 TODO List
 
+[Objectif]  (Réalisé)
+
 HIGH IMPORTANCE :
-- structure Action
-- langage structuré
-- Test
-- Description robot
+- Test                    [22/04]
+- Objet Status            [19/04]
+- Objet Status_registers  [19/04]
+- Objet Status_gpios      [19/04]
+- Objet operation         [19/04]
+- Objet Liste operation   [19/04]
+- Gestion Timer général   [20/04]
 
 
 MID IMPORTANCE :
-- validations
-- different format dans valeurs
-- registres multiples
-- enregistrement liste de taches 
-- Taches
-- systeme sécurité Arrêt + capteurs
+- validations             [21/04]
+- registres multiples     [21/04]
+- multiple format availi  [23/04]
+- Security error          [24/04]
 
 LOW IMPORTANCE :
-- design modif
+- design modif            [Not planned]
+
+
+
+
+DONE : 
+- Objet robot         (17/04)
+- Objet registres     (17/04)
+- Objet gpio          (17/04)
+- Design base         (17/04)

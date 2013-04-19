@@ -1,4 +1,13 @@
 Cecile::Application.routes.draw do
+  resources :status_gpios
+
+
+  resources :status_registers
+
+
+  resources :statuses
+
+
   resources :gpios
   resources :registers
   resources :robots

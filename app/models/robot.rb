@@ -3,6 +3,7 @@ class Robot < ActiveRecord::Base
 
   has_many :registers, :inverse_of => :robot
   has_many :gpios,     :inverse_of => :robot
+  has_many :statuses,  :inverse_of => :robot
 
   validates :name,:fpga_adress, :presence => true
 

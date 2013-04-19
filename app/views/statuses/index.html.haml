@@ -1,0 +1,23 @@
+.page-header
+  = link_to new_status_path, :class => 'btn btn-primary' do
+    %i.icon-plus.icon-white
+    New Status
+  %h1 Listing statuses
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th
+      %th
+      %th
+
+  %tbody
+    - @statuses.each do |status|
+      %tr
+        %td= status.name
+        %td= status.description
+        %td= link_to 'Show', status
+        %td= link_to 'Edit', edit_status_path(status)
+        %td= link_to 'Destroy', status, :confirm => 'Are you sure?', :method => :delete
