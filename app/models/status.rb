@@ -4,6 +4,7 @@ class Status < ActiveRecord::Base
   belongs_to  :robot
   has_many    :gpios,      :foreign_key => 'status_id', :class_name => "StatusGpio"
   has_many    :registers,  :foreign_key => 'status_id', :class_name => "StatusRegister"
+  has_many    :tasks
 
   accepts_nested_attributes_for :gpios,     :allow_destroy => true
   accepts_nested_attributes_for :registers, :allow_destroy => true

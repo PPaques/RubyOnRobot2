@@ -1,0 +1,33 @@
+.page-header
+  = link_to new_task_path, :class => 'btn btn-primary' do
+    %i.icon-plus.icon-white
+    New Task
+  %h1 Listing tasks
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Time max
+      %th State to send
+      %th State asked
+      %th Operation error
+      %th
+      %th
+      %th
+
+  %tbody
+    - @tasks.each do |task|
+      %tr
+        %td= task.name
+        %td= task.description
+        %td= task.time_max
+        %td= link_to task.state_to_send.name, task.state_to_send
+        %td= link_to task.state_asked.name, task.state_asked
+        %td
+          = link_to(task.operation_error.name, task.operation_error)  unless task.operation_error.blank?
+          = "None" if task.operation_error.blank?
+        %td= link_to 'Show', task
+        %td= link_to 'Edit', edit_task_path(task)
+        %td= link_to 'Destroy', task, :confirm => 'Are you sure?', :method => :delete
