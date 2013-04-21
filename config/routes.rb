@@ -1,5 +1,9 @@
 Cecile::Application.routes.draw do
-  resources :working_operations do  collection { get :clear }
+  resources :working_operations do  
+    collection do 
+      get :clear 
+      post :sort
+    end
   end
   resources :tasks do
     member { get :push }
