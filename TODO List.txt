@@ -3,13 +3,13 @@ TODO List
 [Objectif]  (Réalisé)
 
 HIGH IMPORTANCE :
-- Objet Working_job       [20/04]
 - Gestion Timer général   [21/04]
-- Test                    [22/04]
-- Implement GPIO com.
-- Implement I2C com.
-- Raspi scrip
-- capistrano
+- Raspi scrip             [22/04]
+- capistrano              [22/04]
+- Implement GPIO com.     [23/04]
+- Implement I2C com.      [23/04]
+- Test                    [23/04]
+
 
 MID IMPORTANCE :
 - validations             [23/04]
@@ -22,6 +22,7 @@ MID IMPORTANCE :
 LOW IMPORTANCE :
 - design modif            [Not planned]
 - resum of state (tasks)  [Not planned]
+- snd class               [Not planned]
 
 
 
@@ -36,3 +37,4 @@ DONE :
 - Objet Status_gpios      [19/04] (19/04)
 - Objet Operations        [19/04] (19/04)
 - Objet Liste operation   [19/04] (21/04)
+- Objet Working_job       [20/04] (21/04)
