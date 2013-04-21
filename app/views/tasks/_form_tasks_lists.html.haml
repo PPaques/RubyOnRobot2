@@ -1,0 +1,6 @@
+%h4 Add an operation
+= simple_form_for TasksList.new do |f|
+  .form-inputs
+    = f.input :operation_id, :collection => Operation.all
+    = f.hidden_field :task_id, :value => @task.id
+    = f.button :submit, :class => "btn-success"

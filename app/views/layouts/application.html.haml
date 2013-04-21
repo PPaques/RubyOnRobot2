@@ -34,6 +34,8 @@
                 = link_to "Statuses", statuses_path
               %li{:class => is_selected('operations')}
                 = link_to "Operations", operations_path
+              %li{:class => is_selected('tasks')}
+                = link_to "Tasks", tasks_path
     .container
       - flash.each do |name, msg|
         = content_tag :div, :class => "alert #{name == :error ? "alert-error" : "alert-success" }" do

@@ -1,4 +1,4 @@
-class CreateTasks < ActiveRecord::Migration
+class CreateTasksOld < ActiveRecord::Migration
   def change
     create_table :tasks do |t|
       t.integer :robot_id

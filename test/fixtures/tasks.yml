@@ -3,15 +3,7 @@
 one:
   name: MyString
   description: MyText
-  time_max: 1
-  state_to_send_id: 1
-  state_asked_id: 1
-  operation_error_id: 1
 
 two:
   name: MyString
   description: MyText
-  time_max: 1
-  state_to_send_id: 1
-  state_asked_id: 1
-  operation_error_id: 1

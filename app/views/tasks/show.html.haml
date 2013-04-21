@@ -1,0 +1,34 @@
+.page-header
+  = link_to tasks_path, :class => 'btn' do
+    %i.icon-list-alt
+    Back
+  = link_to edit_task_path(@task), :class => 'btn btn-primary' do
+    %i.icon-pencil.icon-white
+    Edit
+  %h1 Listing tasks
+
+%dl
+  %dt Name:
+  %dd= @task.name
+  %dt Description:
+  %dd= @task.description
+
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th
+      %th operation
+      %th
+
+  %tbody#tasks_list{'data-update-url' => sort_tasks_lists_url }
+    - @task.tasks_lists.each do |task_list|
+      = content_tag_for :tr, task_list do
+        %td.span3.handle [drag] 
+        %td.span8= task_list.operation.name
+        %td.span1
+          = link_to tasks_list_url, :confirm => 'Are you sure?', :method => :delete do
+            .btn.btn-mini.btn-danger
+              %i.icon-remove.icon-white
+
+= render "form_tasks_lists"
