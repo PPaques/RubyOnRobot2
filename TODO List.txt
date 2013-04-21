@@ -23,6 +23,7 @@ LOW IMPORTANCE :
 - design modif            [Not planned]
 - resum of state (tasks)  [Not planned]
 - snd class               [Not planned]
+- simulator               []
 
 
 

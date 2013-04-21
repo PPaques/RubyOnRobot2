@@ -10,6 +10,8 @@ class WorkingOperation < ActiveRecord::Base
   validates :robot, :operation, :status, :presence => true
   validates_inclusion_of :status, :in => STATUSES
 
+  default_scope order(:position)
+  
   def idle?
     if status == 'IDLE'
       true
