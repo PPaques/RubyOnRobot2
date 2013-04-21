@@ -1,6 +1,6 @@
 TODO List
 
-[Objectif]  (Réalisé)
+                          [Obj. ]  (Réalisé)
 
 HIGH IMPORTANCE :
 - Gestion Timer général   [21/04]
@@ -28,10 +28,10 @@ LOW IMPORTANCE :
 
 
 DONE : 
-- Objet robot         (17/04)
-- Objet registres     (17/04)
-- Objet gpio          (17/04)
-- Design base         (17/04)
+- Objet robot                     (17/04)
+- Objet registres                 (17/04)
+- Objet gpio                      (17/04)
+- Design base                     (17/04)
 - Objet Status            [19/04] (19/04)
 - Objet Status_registers  [19/04] (19/04)
 - Objet Status_gpios      [19/04] (19/04)
