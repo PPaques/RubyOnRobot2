@@ -1,0 +1,33 @@
+.page-header
+  = link_to new_operation_path, :class => 'btn btn-primary' do
+    %i.icon-plus.icon-white
+    New Operation
+  %h1 Listing operations
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Time max
+      %th State to send
+      %th State asked
+      %th Operation error
+      %th
+      %th
+      %th
+
+  %tbody
+    - @operations.each do |operation|
+      %tr
+        %td= operation.name
+        %td= operation.description
+        %td= operation.time_max
+        %td= link_to operation.state_to_send.name, operation.state_to_send
+        %td= link_to operation.state_asked.name, operation.state_asked
+        %td
+          = link_to(operation.operation_error.name, operation.operation_error)  unless operation.operation_error.blank?
+          = "None" if operation.operation_error.blank?
+        %td= link_to 'Show', operation
+        %td= link_to 'Edit', edit_operation_path(operation)
+        %td= link_to 'Destroy', operation, :confirm => 'Are you sure?', :method => :delete

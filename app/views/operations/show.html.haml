@@ -1,0 +1,22 @@
+.page-header
+  = link_to operations_path, :class => 'btn' do
+    %i.icon-list-alt
+    Back
+  = link_to edit_operation_path(@operation), :class => 'btn btn-primary' do
+    %i.icon-pencil.icon-white
+    Edit
+  %h1 Listing operations
+
+%dl
+  %dt Name:
+  %dd= @operation.name
+  %dt Description:
+  %dd= @operation.description
+  %dt Time max:
+  %dd= @operation.time_max
+  %dt State to send:
+  %dd= @operation.state_to_send_id
+  %dt State asked:
+  %dd= @operation.state_asked_id
+  %dt Operation error:
+  %dd= @operation.operation_error_id

@@ -8,7 +8,7 @@
   %thead
     %tr
       %th
-      %th Task
+      %th operation
       %th Position
       %th
       %th
@@ -18,7 +18,7 @@
     - @task_lists.each do |task_list|
       = content_tag_for :tr, task_list do
         %td.handle [drag] 
-        %td= task_list.task_id
+        %td= task_list.operation_id
         %td= task_list.position
         %td= link_to 'Show', task_list
         %td= link_to 'Edit', edit_task_list_path(task_list)

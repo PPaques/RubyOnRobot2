@@ -1,4 +1,4 @@
-= simple_form_for(@task, :defaults => { :input_html => { :class => 'input-xxlarge' } }) do |f|
+= simple_form_for(@operation, :defaults => { :input_html => { :class => 'input-xxlarge' } }) do |f|
   = f.error_notification
 
   .form-inputs
@@ -7,7 +7,7 @@
     = f.input :time_max
     = f.input :state_to_send_id,  :collection => Status.all
     = f.input :state_asked_id,    :collection => Status.all
-    = f.input :operation_error_id,:collection => Task.all
+    = f.input :operation_error_id,:collection => Operation.all
 
   .form-actions
     = f.button :submit, :class => "btn-primary"

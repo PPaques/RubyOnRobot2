@@ -1,9 +1,9 @@
 class TaskList < ActiveRecord::Base
   acts_as_list
 
-  attr_accessible :position, :task_id
+  attr_accessible :position, :operation_id
 
-  belongs_to :task
+  belongs_to :operation
 
-  validates :task, :presence => true
+  validates :operation, :presence => true
 end
