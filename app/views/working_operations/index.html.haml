@@ -1,0 +1,31 @@
+.page-header
+  = link_to clear_working_operations_path, :class => 'btn btn-danger' do
+    %i.icon-trash.icon-white
+    Clear Queue
+  %h1 Listing working_operations
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th Robot
+      %th Run until
+      %th Started at
+      %th Operation
+      %th Status
+      %th Position
+      %th
+      %th
+      %th
+
+  %tbody
+    - @working_operations.each do |working_operation|
+      %tr
+        %td= working_operation.robot_id
+        %td= working_operation.run_until
+        %td= working_operation.started_at
+        %td= working_operation.operation_id
+        %td= working_operation.status
+        %td= working_operation.position
+        %td= link_to 'Show', working_operation
+        %td= link_to 'Edit', edit_working_operation_path(working_operation)
+        %td= link_to 'Destroy', working_operation, :confirm => 'Are you sure?', :method => :delete

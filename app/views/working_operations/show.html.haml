@@ -1,0 +1,22 @@
+.page-header
+  = link_to working_operations_path, :class => 'btn' do
+    %i.icon-list-alt
+    Back
+  = link_to edit_working_operation_path(@working_operation), :class => 'btn btn-primary' do
+    %i.icon-pencil.icon-white
+    Edit
+  %h1 Listing working_operations
+
+%dl
+  %dt Robot:
+  %dd= @working_operation.robot_id
+  %dt Run until:
+  %dd= @working_operation.run_until
+  %dt Started at:
+  %dd= @working_operation.started_at
+  %dt Operation:
+  %dd= @working_operation.operation_id
+  %dt Status:
+  %dd= @working_operation.status
+  %dt Position:
+  %dd= @working_operation.position

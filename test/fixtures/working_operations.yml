@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  robot_id: 1
+  run_until: 2013-04-21 15:35:20
+  started_at: 
+  operation_id: 1
+  status: MyString
+  position: 1
+
+two:
+  robot_id: 1
+  run_until: 2013-04-21 15:35:20
+  started_at: 
+  operation_id: 1
+  status: MyString
+  position: 1

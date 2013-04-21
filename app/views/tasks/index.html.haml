@@ -14,12 +14,18 @@
       %th
       %th
       %th
+      %th
 
   %tbody
     - @tasks.each do |task|
       %tr
         %td= task.name
         %td= task.description
+        %td
+          =link_to push_task_path(task) do
+            .btn
+              %i.icon-plus
+              Add to queue
         %td= link_to 'Show', task
         %td= link_to 'Edit', edit_task_path(task)
         %td= link_to 'Destroy', task, :confirm => 'Are you sure?', :method => :delete

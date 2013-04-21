@@ -9,4 +9,5 @@ class TasksList < ActiveRecord::Base
   validates :operation, :task_id, :presence => true
 
   default_scope order(:position)
+
 end

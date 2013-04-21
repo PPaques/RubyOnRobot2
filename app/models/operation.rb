@@ -5,9 +5,17 @@ class Operation < ActiveRecord::Base
   belongs_to :robot
   belongs_to :state_to_send,    :class_name => 'Status'
   belongs_to :state_asked,      :class_name => 'Status'
-  has_many :task_lists,         :inverse_of => :operation
+
+  has_many :tasks_lists,        :inverse_of => :operation
+  has_many :working_operations, :inverse_of => :operation
+  has_many :tasks,              :through    => :tasks_lists
 
   validates :robot, :name, :description, :state_asked_id, :state_to_send_id, :time_max, :presence => true
+  validates :name, :uniqueness => true
 
+
+  def enqueue
+    WorkingOperation.create(:robot => robot, :operation => self, :status => 'IDLE')
+  end
 
 end

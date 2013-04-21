@@ -81,4 +81,15 @@ class TasksController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # get /tasks/1/push
+  def push
+    @task = Task.find(params[:id], :include => :tasks_lists)
+
+    if @task.enqueue 
+      redirect_to tasks_url, notice: 'Task successfully enqueued'
+    else
+      redirect_to tasks_url, notice: 'Task NOT enqueued'
+    end 
+  end
 end

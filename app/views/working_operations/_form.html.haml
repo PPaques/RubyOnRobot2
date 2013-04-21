@@ -1,0 +1,13 @@
+= simple_form_for(@working_operation, :defaults => { :input_html => { :class => 'input-xxlarge' } }) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :robot_id
+    = f.input :run_until
+    = f.input :started_at
+    = f.input :operation_id
+    = f.input :status
+    = f.input :position
+
+  .form-actions
+    = f.button :submit, :class => "btn-primary"
