@@ -3,7 +3,6 @@ TODO List
 [Objectif]  (Réalisé)
 
 HIGH IMPORTANCE :
-- Objet Liste operation   [19/04]
 - Objet Working_job       [20/04]
 - Gestion Timer général   [21/04]
 - Test                    [22/04]
@@ -36,3 +35,4 @@ DONE :
 - Objet Status_registers  [19/04] (19/04)
 - Objet Status_gpios      [19/04] (19/04)
 - Objet Operations        [19/04] (19/04)
+- Objet Liste operation   [19/04] (21/04)
