@@ -5,7 +5,7 @@ TODO List
 HIGH IMPORTANCE :
 - Objet Liste operation   [19/04]
 - Objet Working_job       [20/04]
-- Gestion Timer général   [20/04]
+- Gestion Timer général   [21/04]
 - Test                    [22/04]
 - Implement GPIO com.
 - Implement I2C com.
@@ -17,6 +17,7 @@ MID IMPORTANCE :
 - registres multiples     [23/04]
 - multiple format availi  [23/04]
 - Security error          [24/04]
+- Operation generic type  [24/04]
 - delete chain ?
 
 LOW IMPORTANCE :

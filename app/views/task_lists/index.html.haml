@@ -1,0 +1,25 @@
+.page-header
+  = link_to new_task_list_path, :class => 'btn btn-primary' do
+    %i.icon-plus.icon-white
+    New Task list
+  %h1 Listing task_lists
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th
+      %th Task
+      %th Position
+      %th
+      %th
+      %th
+
+  %tbody#task_lists{'data-update-url' => sort_task_lists_url }
+    - @task_lists.each do |task_list|
+      = content_tag_for :tr, task_list do
+        %td.handle [drag] 
+        %td= task_list.task_id
+        %td= task_list.position
+        %td= link_to 'Show', task_list
+        %td= link_to 'Edit', edit_task_list_path(task_list)
+        %td= link_to 'Destroy', task_list, :confirm => 'Are you sure?', :method => :delete

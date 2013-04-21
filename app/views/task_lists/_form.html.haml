@@ -1,0 +1,9 @@
+= simple_form_for(@task_list, :defaults => { :input_html => { :class => 'input-xxlarge' } }) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :task_id, :collection => Task.all
+    = f.input :position
+
+  .form-actions
+    = f.button :submit, :class => "btn-primary"

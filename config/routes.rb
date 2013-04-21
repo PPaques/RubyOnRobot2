@@ -1,4 +1,7 @@
 Cecile::Application.routes.draw do
+  resources :task_lists do
+    collection { post :sort }
+  end
   resources :tasks
   resources :statuses
   resources :gpios
