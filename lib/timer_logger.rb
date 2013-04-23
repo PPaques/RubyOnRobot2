@@ -4,6 +4,6 @@ class TimerLogger < Logger
   end
 end
  
-logfile = File.open("#{Rails.root}/log/timer.log", 'a')  # create log file
+logfile = File.open("#{Rails.root}/log/timer.log", 'a+')  # create log file
 logfile.sync = true  # automatically flushes data to file
 TIMER_LOGGER = TimerLogger.new(logfile)  # constant accessible anywhere
