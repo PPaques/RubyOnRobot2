@@ -41,10 +41,16 @@ end
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano'
+group :development, :test do
+  gem 'capistrano'
+  gem 'capistrano_colors'
+  gem 'capistrano-unicorn', :require => false
+  gem 'better_errors'
+end
+
 
 # To use debugger
 # gem 'debugger'
