@@ -24,7 +24,7 @@ class StatusGpio < ActiveRecord::Base
 
   def read
     gpio.read
-  end 
+  end
 
   def is_reached?
     if value = gpio.value
@@ -32,5 +32,5 @@ class StatusGpio < ActiveRecord::Base
     else
       false
     end
-  end 
+  end
 end

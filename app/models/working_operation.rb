@@ -11,7 +11,7 @@ class WorkingOperation < ActiveRecord::Base
   validates_inclusion_of :status, :in => STATUSES
 
   default_scope order(:position)
-  
+
   def idle?
     if status == 'IDLE'
       true
@@ -46,8 +46,8 @@ class WorkingOperation < ActiveRecord::Base
 
   def perform
     begin
-      operation.state_to_send.send_to_robot 
-  
+      operation.state_to_send.send_to_robot
+
       started_at = Time.now
       status = "CURRENT"
       run_until = Time.now + operation.time_max.to_f/1000 if operation.time_max > 0
@@ -65,9 +65,9 @@ class WorkingOperation < ActiveRecord::Base
   def timeout?
     if Time.now < run_until
       true
-    else 
+    else
       false
-    end 
+    end
   end
 
   def failed

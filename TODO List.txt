@@ -3,12 +3,9 @@ TODO List
                           [Obj. ]  (Réalisé)
 
 HIGH IMPORTANCE :
-- Gestion Timer général   [21/04]
-- Implement GPIO com.     [23/04]
-- Implement I2C com.      [23/04]
-- Test                    [23/04]
-- delete default value
-- Verify I2c
+- Global Integration Test [25/04]
+- Verify I2C              [25/04]
+- Verify GPIO             [25/04]
 
 
 MID IMPORTANCE :
@@ -31,7 +28,7 @@ LOW IMPORTANCE :
 
 
 
-DONE : 
+DONE :
 - Objet robot                     (17/04)
 - Objet registres                 (17/04)
 - Objet gpio                      (17/04)
@@ -44,3 +41,6 @@ DONE :
 - Objet Working_job       [20/04] (21/04)
 - Raspi scrip             [22/04] (23/04)
 - capistrano              [22/04] (23/04)
+- Gestion Timer général   [21/04] (25/04)
+- Implement GPIO com.     [23/04] (25/04)
+- Implement I2C com.      [23/04] (25/04)

@@ -15,7 +15,7 @@ class Status < ActiveRecord::Base
   def send_to_robot
     registers.each { |register| register.set_value }
     gpios.each { |gpio| gpio.set_value}
-  end 
+  end
 
   def is_reached?
     reached = true

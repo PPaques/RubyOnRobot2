@@ -15,16 +15,16 @@ class Timer
     if robot.is_actif?
       # verify if there is a operation or we lauch the operation
       @robot.next_operation.perform if (!@robot.has_current_operation? and @robot.next_operation)
-      
+
       if @robot.current_operation.state_reached?
         @robot.current_operation.finished
         @robot.next_operation.perform if @robot.next_operation
       else
-        if @robot.current_operation.timeout? 
+        if @robot.current_operation.timeout?
           @robot.current_operation.failed
           @robot.next_operation.perform if @robot.next_operation
         end
-      end 
+      end
     end
   end
 end

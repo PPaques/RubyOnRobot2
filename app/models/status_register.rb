@@ -17,7 +17,7 @@ class StatusRegister < ActiveRecord::Base
 
   def set_value
     register.set_value value
-  end 
+  end
 
   def is_reached?
     if value = register.value
@@ -25,5 +25,5 @@ class StatusRegister < ActiveRecord::Base
     else
       false
     end
-  end 
+  end
 end
