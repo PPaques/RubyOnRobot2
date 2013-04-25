@@ -1,22 +1,23 @@
 TODO List
                           [Obj. ]  (Réalisé)
 HIGH IMPORTANCE :
+- Security error          [24/04]
 - Global Integration Test [26/04]
 - Verify I2C              [26/04]
 - Verify GPIO             [26/04]
 
 MID IMPORTANCE :
-- Security error          [24/04]
-- Operation generic type  [24/04]
 - Big cleanup             [26/04]
-- add button in operation to add directly in the queue
+- button to queue in task [26/04]
+- resume state in task viw[26/05]
+- snd class               [26/05]
 
 LOW IMPORTANCE :
+
+ABANDONNED :
 - registres multiples     [Not planned]
 - multiple format availi  [Not planned]
 - design modif            [Not planned]
-- resume state in task viw[26/05]
-- snd class               [26/05]
 - simulator               [Not planned]
 
 
@@ -41,3 +42,4 @@ DONE :
 - Tename address in regi  [25/04] (25/04)
 - Add a reached_at        [25/04] (25/04)
 - push action on top fail [25/04] (25/04)
+- Operation generic type  [24/04] (25/04)
