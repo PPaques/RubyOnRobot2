@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130425075947) do
+ActiveRecord::Schema.define(:version => 20130425220757) do
 
   create_table "gpios", :force => true do |t|
     t.string   "name"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(:version => 20130425075947) do
   create_table "registers", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.string   "address"
+    t.string   "adress"
     t.string   "value"
     t.string   "last_value"
     t.datetime "created_at",    :null => false

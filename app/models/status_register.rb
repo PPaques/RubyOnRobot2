@@ -11,8 +11,8 @@ class StatusRegister < ActiveRecord::Base
     register.name
   end
 
-  def address
-    address.name
+  def adress
+    register.adress
   end
 
   def set_value

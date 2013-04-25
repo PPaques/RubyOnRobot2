@@ -9,14 +9,10 @@ HIGH IMPORTANCE :
 - Verify GPIO             [26/04]
 
 MID IMPORTANCE :
-- multiple format availi  [23/04] -> unplanned but easy
 - Security error          [24/04]
 - Operation generic type  [24/04]
-- delete chain ?          [25/04]
-- rename address in regi  [25/05]
-- add a reached_at        [25/05]
-- cascade delete          [25/04]
-
+- add a reached_at        [25/04]
+- Big cleanup             [26/04]
 
 LOW IMPORTANCE :
 - registres multiples     [Not planned]
@@ -25,8 +21,6 @@ LOW IMPORTANCE :
 - resume state in task viw[26/05]
 - snd class               [26/05]
 - simulator               [Not planned]
-
-
 
 
 DONE :
@@ -46,3 +40,5 @@ DONE :
 - Implement GPIO com.     [23/04] (25/04)
 - Implement I2C com.      [23/04] (25/04)
 - validations             [23/04] (25/04)
+- delete chain            [25/04] (25/04)
+- rename address in regi  [25/04] (25/04)
