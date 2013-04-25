@@ -3,26 +3,27 @@ TODO List
                           [Obj. ]  (Réalisé)
 
 HIGH IMPORTANCE :
-- Global Integration Test [25/04]
-- Verify I2C              [25/04]
-- Verify GPIO             [25/04]
-
+- push action on top fail [25/04]
+- Global Integration Test [26/04]
+- Verify I2C              [26/04]
+- Verify GPIO             [26/04]
 
 MID IMPORTANCE :
-- validations             [23/04]
-- registres multiples     [23/04]
-- multiple format availi  [23/04]
+- multiple format availi  [23/04] -> unplanned but easy
 - Security error          [24/04]
 - Operation generic type  [24/04]
-- delete chain ?
-- rename address to adress in register
-- add a reached_at
+- delete chain ?          [25/04]
+- rename address in regi  [25/05]
+- add a reached_at        [25/05]
+- cascade delete          [25/04]
 
 
 LOW IMPORTANCE :
+- registres multiples     [Not planned]
+- multiple format availi  [Not planned]
 - design modif            [Not planned]
-- resum of state (tasks)  [Not planned]
-- snd class               [Not planned]
+- resume state in task viw[26/05]
+- snd class               [26/05]
 - simulator               [Not planned]
 
 
@@ -44,3 +45,4 @@ DONE :
 - Gestion Timer général   [21/04] (25/04)
 - Implement GPIO com.     [23/04] (25/04)
 - Implement I2C com.      [23/04] (25/04)
+- validations             [23/04] (25/04)

@@ -1,12 +1,12 @@
 class Robot < ActiveRecord::Base
   attr_accessible :name, :fpga_adress, :actif
 
-  has_many :registers,          :inverse_of => :robot
-  has_many :gpios,              :inverse_of => :robot
-  has_many :statuses,           :inverse_of => :robot
-  has_many :tasks,              :inverse_of => :robot
-  has_many :operations,         :inverse_of => :robot
-  has_many :working_operations, :inverse_of => :robot
+  has_many :registers,          :inverse_of => :robot, :dependent => :delete_all
+  has_many :gpios,              :inverse_of => :robot, :dependent => :delete_all
+  has_many :statuses,           :inverse_of => :robot, :dependent => :delete_all
+  has_many :tasks,              :inverse_of => :robot, :dependent => :delete_all
+  has_many :operations,         :inverse_of => :robot, :dependent => :delete_all
+  has_many :working_operations, :inverse_of => :robot, :dependent => :delete_all
 
   validates :name,:fpga_adress, :actif, :presence => true
 

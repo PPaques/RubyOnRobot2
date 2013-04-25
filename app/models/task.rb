@@ -1,7 +1,7 @@
 class Task < ActiveRecord::Base
   attr_accessible :robot, :name, :description
 
-  has_many   :tasks_lists, :inverse_of => :task
+  has_many   :tasks_lists, :inverse_of => :task, :dependent => :delete_all
   has_many   :operations,  :through    => :tasks_lists
   belongs_to :robot
 

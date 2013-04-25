@@ -1,7 +1,7 @@
 class Gpio < ActiveRecord::Base
   attr_accessible  :robot, :name, :description, :direction, :pin, :value, :default_value
 
-  has_many   :status_gpio, inverse_of: :gpio
+  has_many   :status_gpio, inverse_of: :gpio, :dependent => :delete_all
 
   belongs_to :robot
 
@@ -43,13 +43,13 @@ class Gpio < ActiveRecord::Base
   private
 
   def initialize_system
-    @gpio_real = GpioInterface.new(:pin => :pin, :direction => self.direction_plein) if Rails.env.production? 
+    @gpio_real = GpioInterface.new(:pin => :pin, :direction => self.direction_plein) if Rails.env.production?
   end
 
   def direction_plein
     if direction
       :in
-    else 
+    else
       :out
     end
   end
