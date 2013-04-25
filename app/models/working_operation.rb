@@ -1,7 +1,7 @@
 class WorkingOperation < ActiveRecord::Base
   acts_as_list
 
-  attr_accessible :robot, :operation, :position, :run_until, :started_at, :status
+  attr_accessible :robot, :operation, :position, :run_until, :started_at, :status, :closed_at
   STATUSES = ['IDLE', 'CURRENT', 'FAIL', 'SUCCESS']
 
   belongs_to :robot
@@ -72,11 +72,13 @@ class WorkingOperation < ActiveRecord::Base
 
   def failed
     status = "FAIL"
+    closed_at = Time.now
     self.save
   end
 
   def finished
     status = "SUCCESS"
+    closed_at = Time.now
     self.save
   end
 end

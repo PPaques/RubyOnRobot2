@@ -7,25 +7,27 @@
 %table.table.table-bordered.table-striped
   %thead
     %tr
-      %th.span1 
+      %th.span1
       %th.span1 Status
-      %th.span2 Run until
-      %th.span2 Started at
-      %th.span2 Operation
+      %th.span1 Run until
+      %th.span1 Started at
+      %th.span1 Closed at
+      %th.span3 Operation
       %th.span3 Description
       %th.span1
 
   %tbody#operations{'data-update-url' => sort_working_operations_url }
     - @working_operations.each do |working_operation|
       = content_tag_for :tr, working_operation do
-        %td.span1.handle [drag] 
+        %td.span1.handle [drag]
         %td.span1
           %span.label=                  working_operation.status if working_operation.idle?
           %span.label.label-info=       working_operation.status if working_operation.current?
           %span.label.label-important=  working_operation.status if working_operation.fail?
           %span.label.label-success=    working_operation.status if working_operation.success?
-        %td.span2= working_operation.started_at
-        %td.span2= working_operation.run_until
-        %td.span2= link_to working_operation.operation.name, operation_path(working_operation.operation)
+        %td.span1= working_operation.started_at
+        %td.span1= working_operation.run_until
+        %td.span1= working_operation.closed_at
+        %td.span3= link_to working_operation.operation.name, operation_path(working_operation.operation)
         %td.span3= working_operation.operation.description
         %td.span1= link_to 'Destroy', working_operation, :confirm => 'Are you sure?', :method => :delete
