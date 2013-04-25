@@ -14,4 +14,16 @@ class StatusRegister < ActiveRecord::Base
   def address
     address.name
   end
+
+  def set_value
+    register.set_value value
+  end 
+
+  def is_reached?
+    if value = register.value
+      true
+    else
+      false
+    end
+  end 
 end

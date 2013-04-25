@@ -7,4 +7,10 @@ class Register < ActiveRecord::Base
 
   validates :robot, :name, :address, :description, :default_value, :presence => true
   validates :name, :uniqueness => true
+
+  def set_value new_value
+    new_value ||= default_value
+    robot.write_register(address, new_value)
+  end
+
 end

@@ -7,6 +7,8 @@ HIGH IMPORTANCE :
 - Implement GPIO com.     [23/04]
 - Implement I2C com.      [23/04]
 - Test                    [23/04]
+- delete default value
+- Verify I2c
 
 
 MID IMPORTANCE :
@@ -16,6 +18,9 @@ MID IMPORTANCE :
 - Security error          [24/04]
 - Operation generic type  [24/04]
 - delete chain ?
+- rename address to adress in register
+- add a reached_at
+
 
 LOW IMPORTANCE :
 - design modif            [Not planned]

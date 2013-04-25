@@ -17,4 +17,20 @@ class StatusGpio < ActiveRecord::Base
   def pin
     gpio.pin
   end
+
+  def set_value
+    gpio.set_value value
+  end
+
+  def read
+    gpio.read
+  end 
+
+  def is_reached?
+    if value = gpio.value
+      true
+    else
+      false
+    end
+  end 
 end

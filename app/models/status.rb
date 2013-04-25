@@ -12,5 +12,22 @@ class Status < ActiveRecord::Base
   validates :robot, :name, :description, :presence => true
   validates :name, :uniqueness => true
 
+  def send_to_robot
+    registers.each { |register| register.set_value }
+    gpios.each { |gpio| gpio.set_value}
+  end 
 
+  def is_reached?
+    reached = true
+
+    registers.each do |register|
+      reached = false if register.is_reached?
+    end
+
+    gpios.each do |gpio|
+      reached = false if gpio.is_reached?
+    end
+
+    reached
+  end
 end
