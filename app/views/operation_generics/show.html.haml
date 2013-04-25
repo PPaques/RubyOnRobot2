@@ -1,0 +1,20 @@
+.page-header
+  = link_to operation_generics_path, :class => 'btn' do
+    %i.icon-list-alt
+    Back
+  = link_to edit_operation_generic_path(@operation_generic), :class => 'btn btn-primary' do
+    %i.icon-pencil.icon-white
+    Edit
+  %h1 Listing operation_generics
+
+%dl
+  %dt Name:
+  %dd= @operation_generic.name
+  %dt Decription:
+  %dd= @operation_generic.description
+  %dt Class name:
+  %dd= @operation_generic.class_name
+  %dt Function name:
+  %dd= @operation_generic.function_name
+  %dt Parameters:
+  %dd= @operation_generic.parameters

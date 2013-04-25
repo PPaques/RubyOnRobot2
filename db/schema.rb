@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130425221628) do
+ActiveRecord::Schema.define(:version => 20130425231007) do
 
   create_table "gpios", :force => true do |t|
     t.string   "name"
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(:version => 20130425221628) do
     t.boolean  "value"
   end
 
+  create_table "operation_generics", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "class_name"
+    t.string   "function_name"
+    t.text     "parameters"
+    t.integer  "robot_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
   create_table "operations", :force => true do |t|
     t.integer  "robot_id"
     t.string   "name"
@@ -33,8 +44,9 @@ ActiveRecord::Schema.define(:version => 20130425221628) do
     t.integer  "state_to_send_id"
     t.integer  "state_asked_id"
     t.integer  "operation_error_id"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+    t.integer  "operation_generic_id"
   end
 
   create_table "registers", :force => true do |t|

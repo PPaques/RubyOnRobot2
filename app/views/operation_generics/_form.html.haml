@@ -1,0 +1,12 @@
+= simple_form_for(@operation_generic, :defaults => { :input_html => { :class => 'input-xxlarge' } }) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :description
+    = f.input :class_name
+    = f.input :function_name
+    = f.input :parameters
+
+  .form-actions
+    = f.button :submit, :class => "btn-primary"

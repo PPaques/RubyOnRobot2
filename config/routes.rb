@@ -1,4 +1,7 @@
 Cecile::Application.routes.draw do
+  resources :operation_generics
+
+
   resources :working_operations do  
     collection do 
       get :clear 

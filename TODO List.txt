@@ -1,9 +1,6 @@
 TODO List
-
                           [Obj. ]  (Réalisé)
-
 HIGH IMPORTANCE :
-- push action on top fail [25/04]
 - Global Integration Test [26/04]
 - Verify I2C              [26/04]
 - Verify GPIO             [26/04]
@@ -11,8 +8,8 @@ HIGH IMPORTANCE :
 MID IMPORTANCE :
 - Security error          [24/04]
 - Operation generic type  [24/04]
-- add a reached_at        [25/04]
 - Big cleanup             [26/04]
+- add button in operation to add directly in the queue
 
 LOW IMPORTANCE :
 - registres multiples     [Not planned]
@@ -35,10 +32,12 @@ DONE :
 - Objet Liste operation   [19/04] (21/04)
 - Objet Working_job       [20/04] (21/04)
 - Raspi scrip             [22/04] (23/04)
-- capistrano              [22/04] (23/04)
+- Capistrano              [22/04] (23/04)
 - Gestion Timer général   [21/04] (25/04)
 - Implement GPIO com.     [23/04] (25/04)
 - Implement I2C com.      [23/04] (25/04)
-- validations             [23/04] (25/04)
-- delete chain            [25/04] (25/04)
-- rename address in regi  [25/04] (25/04)
+- Validations             [23/04] (25/04)
+- Delete chain            [25/04] (25/04)
+- Tename address in regi  [25/04] (25/04)
+- Add a reached_at        [25/04] (25/04)
+- push action on top fail [25/04] (25/04)

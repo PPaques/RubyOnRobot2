@@ -5,9 +5,10 @@
     = f.input :name
     = f.input :description
     = f.input :time_max
-    = f.input :state_to_send_id,  :collection => Status.all
-    = f.input :state_asked_id,    :collection => Status.all
-    = f.input :operation_error_id,:collection => Operation.all
+    = f.input :state_to_send_id,      :collection => Status.all
+    = f.input :state_asked_id,        :collection => Status.all
+    = f.input :operation_generic_id,  :collection => OperationGeneric.all
+    = f.input :operation_error_id,    :collection => Operation.all
 
   .form-actions
     = f.button :submit, :class => "btn-primary"

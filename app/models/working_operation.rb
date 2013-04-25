@@ -46,7 +46,7 @@ class WorkingOperation < ActiveRecord::Base
 
   def perform
     begin
-      operation.state_to_send.send_to_robot
+      operation.perform
 
       started_at = Time.now
       status = "CURRENT"
@@ -59,7 +59,7 @@ class WorkingOperation < ActiveRecord::Base
   end
 
   def state_reached?
-    operation.state_asked.is_reached?
+    operation.state_reached?
   end
 
   def timeout?

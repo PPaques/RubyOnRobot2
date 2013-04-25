@@ -12,6 +12,7 @@
       %th Time max
       %th State to send
       %th State asked
+      %th Generic Operation
       %th Operation error
       %th
       %th
@@ -25,6 +26,7 @@
         %td= operation.time_max
         %td= link_to operation.state_to_send.name, operation.state_to_send
         %td= link_to operation.state_asked.name, operation.state_asked
+        %td= link_to operation.operation_generic.name, operation.operation_generic
         %td
           = link_to(operation.operation_error.name, operation.operation_error)  unless operation.operation_error.blank?
           = "None" if operation.operation_error.blank?

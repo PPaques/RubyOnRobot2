@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  decription: MyText
+  class_name: MyString
+  function_name: MyString
+  parameters: MyText
+  robot_id: 1
+
+two:
+  name: MyString
+  decription: MyText
+  class_name: MyString
+  function_name: MyString
+  parameters: MyText
+  robot_id: 1

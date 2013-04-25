@@ -1,0 +1,29 @@
+.page-header
+  = link_to new_operation_generic_path, :class => 'btn btn-primary' do
+    %i.icon-plus.icon-white
+    New Operation generic
+  %h1 Listing operation_generics
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Class name
+      %th Function name
+      %th Parameters
+      %th
+      %th
+      %th
+
+  %tbody
+    - @operation_generics.each do |operation_generic|
+      %tr
+        %td= operation_generic.name
+        %td= operation_generic.description
+        %td= operation_generic.class_name
+        %td= operation_generic.function_name
+        %td= operation_generic.parameters
+        %td= link_to 'Show', operation_generic
+        %td= link_to 'Edit', edit_operation_generic_path(operation_generic)
+        %td= link_to 'Destroy', operation_generic, :confirm => 'Are you sure?', :method => :delete

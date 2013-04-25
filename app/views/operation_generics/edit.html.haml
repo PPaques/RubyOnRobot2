@@ -1,0 +1,10 @@
+.page-header
+  = link_to operation_generics_path, :class => 'btn' do
+    %i.icon-list-alt
+    Back
+  = link_to @operation_generic, :class => 'btn btn-primary' do
+    %i.icon-info-sign.icon-white
+    Show
+  %h1 Editing operation_generic
+
+= render 'form'

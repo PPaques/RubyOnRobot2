@@ -6,6 +6,7 @@ class Robot < ActiveRecord::Base
   has_many :statuses,           :inverse_of => :robot, :dependent => :delete_all
   has_many :tasks,              :inverse_of => :robot, :dependent => :delete_all
   has_many :operations,         :inverse_of => :robot, :dependent => :delete_all
+  has_many :operation_generics, :inverse_of => :robot, :dependent => :delete_all
   has_many :working_operations, :inverse_of => :robot, :dependent => :delete_all
 
   validates :name,:fpga_adress, :actif, :presence => true
