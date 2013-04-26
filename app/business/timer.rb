@@ -7,14 +7,14 @@ class Timer
   # Look in log/timer.log
 
   # This is the entry point of all regulation
-  def do_operation
+  def self.execute
     @robot = Robot.first
     @robot.read_registers
 
 
-    if robot.is_actif?
+    if @robot.is_actif? and (@robot.has_current_operation? or @robot.has_next_operation?)
       # verify if there is a operation or we lauch the operation
-      @robot.next_operation.perform if (!@robot.has_current_operation? and @robot.next_operation)
+      @robot.next_operation.perform if (!@robot.has_current_operation? and @robot.has_next_operation?)
 
       if @robot.current_operation.state_reached?
         @robot.current_operation.finished

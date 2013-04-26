@@ -19,12 +19,12 @@ class Gpio < ActiveRecord::Base
     end
   end
 
-  def self.on
+  def on
     value = @gpio_real.read if Rails.env.production?
     self.save
   end
 
-  def self.off
+  def off
     if direction
       @gpio_real.off if Rails.env.production?
       value = false
@@ -32,7 +32,7 @@ class Gpio < ActiveRecord::Base
     end
   end
 
-  def self.read
+  def read
     if direction
       @gpio_real.on if Rails.env.production?
       value = true

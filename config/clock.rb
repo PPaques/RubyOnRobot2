@@ -10,4 +10,4 @@ handler do |job|
   puts "Running #{job}"
 end
 
-#every(1.seconds, 'Timer_Robot') { Timer.robot.exe}
+every(1.seconds, 'Timer_Robot') { Timer.execute}

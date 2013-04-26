@@ -9,7 +9,7 @@ class Robot < ActiveRecord::Base
   has_many :operation_generics, :inverse_of => :robot, :dependent => :delete_all
   has_many :working_operations, :inverse_of => :robot, :dependent => :delete_all
 
-  validates :name,:fpga_adress, :actif, :presence => true
+  validates :name,:fpga_adress, :presence => true
 
 
   def read_registers
@@ -19,7 +19,6 @@ class Robot < ActiveRecord::Base
 
       # need the card to test that ...
       # Here goes the code for getting the data from all the I2C
-      @i2c_port = "/dev/i2c-1" # todo : parameter
       @i2c_device = ::I2C.create("/dev/i2c-1")
       @adress = @fpga_adress
 
@@ -57,11 +56,19 @@ class Robot < ActiveRecord::Base
     end
   end
 
+  def has_next_operation?
+    if next_operation.nil?
+      false
+    else
+      true
+    end
+  end
+
   def current_operation
     working_operations.find_by_status("CURRENT")
   end
 
   def next_operation
-    next_operation = working_operations.find_by_status("IDLE").first
+    next_operation = working_operations.find_by_status("IDLE")
   end
 end

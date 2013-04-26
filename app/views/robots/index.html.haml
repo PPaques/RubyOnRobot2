@@ -6,6 +6,7 @@
     %tr
       %th Name
       %th FPGA Address
+      %th Actif
       %th
       %th
       %th
@@ -15,6 +16,7 @@
       %tr
         %td= robot.name
         %td= robot.fpga_adress
+        %td= robot.actif
         %td= link_to 'Show', robot
         %td= link_to 'Edit', edit_robot_path(robot)
         %td= link_to 'Destroy', robot, :confirm => 'Are you sure?', :method => :delete

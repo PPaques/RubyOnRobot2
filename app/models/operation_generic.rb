@@ -8,7 +8,15 @@ class OperationGeneric < ActiveRecord::Base
   validates :name, :uniqueness => true
 
   def perform
-    action_class = Kernel.const_get(class_name).new
-    action_class.send(function_name, eval(parameters))
+    if !class_name.blank? and !function_name.blank?
+      # incoming params converting to hash
+
+      parameters_to_sent = {}
+
+      paramaters_to_sent = eval "{#{parameters}}" unless parameters.blank?
+
+      action_class = Kernel.const_get(class_name).new
+      action_class.send(function_name, paramaters_to_sent)
+    end
   end
 end

@@ -45,17 +45,19 @@ class WorkingOperation < ActiveRecord::Base
   end
 
   def perform
-    begin
+    #begin
+      self.started_at = Time.now
+      self.status = "CURRENT"
+      self.run_until = Time.now + 2.years
+      self.run_until = Time.now + operation.time_max.to_f/1000 if operation.time_max > 0
+      self.save
+
       operation.perform
 
-      started_at = Time.now
-      status = "CURRENT"
-      run_until = Time.now + operation.time_max.to_f/1000 if operation.time_max > 0
-      run_until = Time.now + 2.years
-      self.save
-    rescue
-      self.failed
-    end
+
+    #rescue
+    #  self.failed
+    #end
   end
 
   def state_reached?
@@ -71,14 +73,14 @@ class WorkingOperation < ActiveRecord::Base
   end
 
   def failed
-    status = "FAIL"
-    closed_at = Time.now
+    self.status = "FAIL"
+    self.closed_at = Time.now
     self.save
   end
 
   def finished
-    status = "SUCCESS"
-    closed_at = Time.now
+    self.status = "SUCCESS"
+    self.closed_at = Time.now
     self.save
   end
 end
