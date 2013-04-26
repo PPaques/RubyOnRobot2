@@ -10,7 +10,18 @@ class Register < ActiveRecord::Base
 
   def set_value new_value
     new_value ||= default_value
-    robot.write_register(adress, new_value)
+    self.value = new_value
+
+    self.value = `i2cset -y 1 #{robot.adress} #{adress} #{new_value.upcase}`
+    self.value.save
   end
 
+  def self.value= value
+    self.value = value.upcase
+  end
+
+  def read
+    self.value = `i2cget -y 1 #{robot.adress} #{adress}`.delete("\n")
+    self.save
+  end
 end

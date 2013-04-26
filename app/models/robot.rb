@@ -15,32 +15,10 @@ class Robot < ActiveRecord::Base
   def read_registers
     if Rails.env.production?
 
-      require "i2c"
-
-      # need the card to test that ...
-      # Here goes the code for getting the data from all the I2C
-      @i2c_device = ::I2C.create("/dev/i2c-1")
-      @adress = @fpga_adress
-
-      registers.each do |register|
-        register.last_value = register.value
-        register.value = @i2c_device.read(eval(register))
-        register.save
-      end
-
+    registers.each do |register|
+      register.read
     end
-  end
 
-  def write_register(adress, value)
-    if Rails.env.production?
-
-      require "i2c"
-
-      # need the card to test that ...
-      # Here goes the code for getting the data from all the I2C
-      @i2c_port = "/dev/i2c-1" # todo : parameter
-      @i2c_device = ::I2C.create("/dev/i2c-1")
-      @i2c_device.write(eval(@fpga_adress), eval(adress), eval(value))
     end
   end
 

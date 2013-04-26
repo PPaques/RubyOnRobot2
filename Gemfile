@@ -10,7 +10,6 @@ gem 'mysql2'
 gem 'clockwork',  '~> 0.5.0'
 gem 'tzinfo',     '~> 0.3.35'
 # use for communication
-gem 'i2c', '~> 0.2.22'
 gem 'bootstrap-generators', '~> 2.3'
 gem 'jquery-rails'
 gem 'simple_form'
@@ -34,7 +33,7 @@ group :assets do
   # to precompile assets faster
   gem 'turbo-sprockets-rails3'
 end
-  
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

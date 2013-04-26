@@ -19,6 +19,11 @@ class StatusRegister < ActiveRecord::Base
     register.set_value value
   end
 
+
+  def self.value= value
+    self.value = value.upcase
+  end
+
   def is_reached?
     if value = register.value
       true
