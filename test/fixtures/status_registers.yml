@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  register_id: 1
-  value: MyString
-
-two:
-  register_id: 1
-  value: MyString
