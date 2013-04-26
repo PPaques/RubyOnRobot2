@@ -50,4 +50,16 @@ class Robot < ActiveRecord::Base
   def next_operation
     next_operation = working_operations.find_by_status("IDLE")
   end
-end
+
+  def has_perturbation?
+    perturbations.each do |perturbation|
+      return true if perturbation.is_active
+    end
+    return false
+  end
+
+  def active_perturbation
+    perturbations.each do |perturbation|
+      return perturbation perturbation.is_active
+    end
+  end
