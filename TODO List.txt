@@ -1,15 +1,10 @@
 TODO List
                           [Obj. ]  (Réalisé)
 HIGH IMPORTANCE :
-- Security error          [24/04]
 - Global Integration Test [26/04]
-- Verify I2C              [26/04]
 - Verify GPIO             [26/04]
 
 MID IMPORTANCE :
-- Big cleanup             [26/04]
-- button to queue in task [26/04]
-
 
 LOW IMPORTANCE :
 
@@ -43,3 +38,7 @@ DONE :
 - push action on top fail [25/04] (25/04)
 - Operation generic type  [24/04] (25/04)
 - snd class               [26/04] (26/04)
+- Security error          [24/04] (26/04)
+- Verify I2C              [26/04] (26/04)
+- Big cleanup             [26/04] (26/04)
+- button to queue in task [26/04] (26/04)

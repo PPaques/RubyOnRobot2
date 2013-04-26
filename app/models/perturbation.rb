@@ -9,7 +9,7 @@ class Perturbation < ActiveRecord::Base
   validates :name, :uniqueness => true
 
 
-  def is_active
+  def is_active?
     if status.is_reached?
       true
     else

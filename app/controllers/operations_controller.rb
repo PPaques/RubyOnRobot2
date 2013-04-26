@@ -81,4 +81,15 @@ class OperationsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  def push
+    @operation = Operation.find(params[:id])
+
+    if @operation.enqueue
+      redirect_to operations_url, notice: 'Operation successfully enqueued'
+    else
+      redirect_to operations_url, notice: 'Operation NOT enqueued'
+    end
+  end
 end

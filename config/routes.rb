@@ -1,13 +1,9 @@
 Cecile::Application.routes.draw do
   resources :perturbations
-
-
   resources :operation_generics
-
-
-  resources :working_operations do  
-    collection do 
-      get :clear 
+  resources :working_operations do
+    collection do
+      get :clear
       post :sort
     end
   end
@@ -17,7 +13,9 @@ Cecile::Application.routes.draw do
   resources :tasks_lists do
     collection { post :sort }
   end
-  resources :operations
+  resources :operations do
+    member { get :push}
+  end
   resources :statuses
   resources :gpios
   resources :registers

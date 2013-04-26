@@ -53,13 +53,14 @@ class Robot < ActiveRecord::Base
 
   def has_perturbation?
     perturbations.each do |perturbation|
-      return true if perturbation.is_active
+      return true if perturbation.is_active?
     end
     return false
   end
 
   def active_perturbation
     perturbations.each do |perturbation|
-      return perturbation perturbation.is_active
+      return perturbation if perturbation.is_active?
     end
   end
+end
