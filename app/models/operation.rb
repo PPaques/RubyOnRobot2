@@ -10,6 +10,7 @@ class Operation < ActiveRecord::Base
   has_many :tasks_lists,        :inverse_of => :operation,    :dependent => :delete_all
   has_many :working_operations, :inverse_of => :operation,    :dependent => :delete_all
   has_many :tasks,              :through    => :tasks_lists,  :dependent => :delete_all
+  has_many :perturbations,                                    :dependent => :delete_all
 
   validates :robot, :name, :description, :state_asked_id, :state_to_send_id, :operation_generic_id, :time_max, :presence => true
   validates :name, :uniqueness => true

@@ -1,0 +1,18 @@
+.page-header
+  = link_to perturbations_path, :class => 'btn' do
+    %i.icon-list-alt
+    Back
+  = link_to edit_perturbation_path(@perturbation), :class => 'btn btn-primary' do
+    %i.icon-pencil.icon-white
+    Edit
+  %h1 Listing perturbations
+
+%dl
+  %dt Name:
+  %dd= @perturbation.name
+  %dt Description:
+  %dd= @perturbation.description
+  %dt Status:
+  %dd= @perturbation.status.name
+  %dt Operation:
+  %dd= @perturbation.operation.name

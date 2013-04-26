@@ -1,0 +1,27 @@
+.page-header
+  = link_to new_perturbation_path, :class => 'btn btn-primary' do
+    %i.icon-plus.icon-white
+    New Perturbation
+  %h1 Listing perturbations
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Status
+      %th Operation
+      %th
+      %th
+      %th
+
+  %tbody
+    - @perturbations.each do |perturbation|
+      %tr
+        %td= perturbation.name
+        %td= perturbation.description
+        %td= link_to perturbation.status.name, status_path(perturbation.status)
+        %td= link_to perturbation.operation.name, operation_path(perturbation.operation)
+        %td= link_to 'Show', perturbation
+        %td= link_to 'Edit', edit_perturbation_path(perturbation)
+        %td= link_to 'Destroy', perturbation, :confirm => 'Are you sure?', :method => :delete

@@ -1,0 +1,11 @@
+= simple_form_for(@perturbation, :defaults => { :input_html => { :class => 'input-xxlarge' } }) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :description
+    = f.input :status_id,     :collection => Status.all
+    = f.input :operation_id,  :collection => Operation.all
+
+  .form-actions
+    = f.button :submit, :class => "btn-primary"

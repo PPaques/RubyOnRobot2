@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130425231007) do
+ActiveRecord::Schema.define(:version => 20130426222545) do
 
   create_table "gpios", :force => true do |t|
     t.string   "name"
@@ -47,6 +47,16 @@ ActiveRecord::Schema.define(:version => 20130425231007) do
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
     t.integer  "operation_generic_id"
+  end
+
+  create_table "perturbations", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "status_id"
+    t.integer  "operation_id"
+    t.integer  "robot_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "registers", :force => true do |t|
