@@ -45,7 +45,7 @@ class WorkingOperation < ActiveRecord::Base
   end
 
   def perform
-    #begin
+    begin
       self.started_at = Time.now
       self.status = "CURRENT"
       self.run_until = Time.now + 2.years
@@ -55,9 +55,9 @@ class WorkingOperation < ActiveRecord::Base
       operation.perform
 
 
-    #rescue
-    #  self.failed
-    #end
+    rescue
+      self.failed
+    end
   end
 
   def state_reached?

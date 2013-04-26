@@ -10,7 +10,6 @@ MID IMPORTANCE :
 - Big cleanup             [26/04]
 - button to queue in task [26/04]
 - resume state in task viw[26/05]
-- snd class               [26/05]
 
 LOW IMPORTANCE :
 
@@ -43,3 +42,4 @@ DONE :
 - Add a reached_at        [25/04] (25/04)
 - push action on top fail [25/04] (25/04)
 - Operation generic type  [24/04] (25/04)
+- snd class               [26/04] (26/04)
