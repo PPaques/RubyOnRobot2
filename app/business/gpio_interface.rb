@@ -1,6 +1,6 @@
 class GpioInterface
  attr_reader :pin, :last_value, :value, :direction, :invert
-  
+
   #Initializes a new GPIO pin.
   #
   # @param [Hash] options A hash of options
@@ -9,36 +9,42 @@ class GpioInterface
   # @option options [Boolean] :invert Indicates if the value read from the physical pin should be inverted. Defaults to false.
   # @option options [Symbol] :trigger Indicates when the wait_for_change method will detect a change, either :rising, :falling, or :both edge triggers. Defaults to :both.
   def initialize(options)
-    options = {:direction => :in, :invert => false, :trigger => :both}.merge options
+    options = {:direction => true, :invert => false, :trigger => :both}.merge options
     @pin = options[:pin]
     @direction = options[:direction]
     @invert = options[:invert]
     @trigger = options[:trigger]
-    
+
+    if @direction
+      @direction = :in
+    else
+      @direction = :out
+    end
+
     raise "Invalid direction. Options are :in or :out" unless [:in, :out].include? @direction
     raise "Invalid trigger. Options are :rising, :falling, or :both" unless [:rising, :falling, :both].include? @trigger
-   
+
     File.open("/sys/class/gpio/export", "w") { |f| f.write("#{@pin}") }
     File.open(direction_file, "w") { |f| f.write(@direction == :out ? "out" : "in") }
-    
-    read 
+
+    read
   end
-  
+
   # If the pin has been initialized for output this method will set the logic level high.
   def on
     File.open(value_file, 'w') {|f| f.write("1") } if direction == :out
   end
-  
+
   # Tests if the logic level is high.
   def on?
     not off?
   end
-  
+
   # If the pin has been initialized for output this method will set the logic level low.
   def off
     File.open(value_file, 'w') {|f| f.write("0") } if direction == :out
   end
-  
+
   # Tests if the logic level is low.
   def off?
     value == 0
@@ -49,7 +55,7 @@ class GpioInterface
   def update_value(new_value)
     !new_value || new_value == 0 ? off : on
   end
-  
+
   # Tests if the logic level has changed since the pin was last read.
   def changed?
     last_value != value
@@ -62,7 +68,7 @@ class GpioInterface
     loop do
       fd.read
       IO.select(nil, nil, [fd], nil)
-      read 
+      read
       if changed?
         next if @trigger == :rising and value == 0
         next if @trigger == :falling and value == 1
@@ -71,14 +77,14 @@ class GpioInterface
     end
   end
 
-  # Reads the current value from the pin. Without calling this method first, `value`, `last_value` and `changed?` will not be updated. 
+  # Reads the current value from the pin. Without calling this method first, `value`, `last_value` and `changed?` will not be updated.
   # In short, you must call this method if you are curious about the current state of the pin.
-  def read 
+  def read
     @last_value = @value
     val = File.read(value_file).to_i
     @value = invert ? (val ^ 1) : val
   end
-  
+
   private
   def value_file
     "/sys/class/gpio/gpio#{pin}/value"
