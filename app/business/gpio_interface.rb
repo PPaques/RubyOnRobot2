@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-class Gpio
+class GpioInterface
    attr_reader :pin, :last_value, :value, :direction, :invert
 
     #Initializes a new GPIO pin.

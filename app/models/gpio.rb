@@ -11,8 +11,8 @@ class Gpio < ActiveRecord::Base
   def after_initialize
     @my_cache = {}
     if Rails.env.production?
-      @gpio = Gpio.new(:pin => :pin, :direction => :in)   if direction
-      @gpio = Gpio.new(:pin => :pin, :direction => :out)  unless direction
+      @gpio = GpioInterface.new(:pin => :pin, :direction => :in)   if direction
+      @gpio = GpioInterface.new(:pin => :pin, :direction => :out)  unless direction
     end
   end
 
