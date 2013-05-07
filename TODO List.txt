@@ -5,6 +5,7 @@ HIGH IMPORTANCE :
 - Verify GPIO             [26/04]
 
 MID IMPORTANCE :
+- bug gpio direction + value
 
 LOW IMPORTANCE :
 

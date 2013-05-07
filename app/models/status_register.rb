@@ -6,7 +6,6 @@ class StatusRegister < ActiveRecord::Base
 
   validates :register, :value, :presence => true
 
-
   def name
     register.name
   end

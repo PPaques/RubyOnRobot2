@@ -4,7 +4,8 @@ class StatusGpio < ActiveRecord::Base
   belongs_to  :gpio
   belongs_to  :status
 
-  validates :gpio,:value, :presence => true
+  validates :gpio, :presence => true
+  validates :value, inclusion: { in: [true, false], message: "can't be blank" }
 
   def name
     gpio.name

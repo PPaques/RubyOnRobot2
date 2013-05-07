@@ -5,9 +5,9 @@
     = f.input :name
     = f.input :description
     = f.input :pin
-    = f.input :direction
+    = f.input :direction, as: :select, collection: [["In", true],["Out", false]]
     = f.input :default_value
     = f.input :value
-    
+
   .form-actions
     = f.button :submit, :class => "btn-primary"

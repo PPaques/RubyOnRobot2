@@ -5,8 +5,9 @@ class Gpio < ActiveRecord::Base
 
   belongs_to :robot
 
-  validates :robot, :name, :description, :direction, :pin, :default_value,  :presence => true
+  validates :robot, :name, :description, :pin,  :presence => true
   validates :name, :uniqueness => true
+  validates :direction, inclusion: { in: [true, false], message: "can't be blank" }
 
   def after_initialize
     @my_cache = {}

@@ -14,7 +14,7 @@
           %td
             = register_form.link_to_remove do
               .btn.btn-mini.btn-danger Remove
-    
+
     = f.link_to_add :registers, :data =>{:target => "#registers"} do
       .btn.pull-right.btn-info Add a register status
     .clearfix
@@ -24,11 +24,11 @@
       = f.fields_for :gpios, :wrapper => false do |gpio_form|
         %tr.fields
           %td= gpio_form.input :gpio_id, :collection => Gpio.all
-          %td= gpio_form.input :value
+          %td= gpio_form.input :value, as: :select, collection: [["ON", true],["OFF", false]]
           %td
             = gpio_form.link_to_remove do
               .btn.btn-mini.btn-danger Remove
-    
+
     = f.link_to_add :gpios, :data =>{:target => "#gpios"} do
       .btn.pull-right.btn-info Add a gpio status
     .clearfix
