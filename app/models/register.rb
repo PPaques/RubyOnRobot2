@@ -12,7 +12,7 @@ class Register < ActiveRecord::Base
     new_value ||= default_value
     self.value = new_value
 
-    self.value = `i2cset -y 1 #{robot.adress} #{adress} #{new_value.upcase}`
+    self.value = `i2cset -y 1 #{robot.fpga_adress} #{adress} #{new_value.upcase}`
     self.value.save
   end
 
@@ -21,7 +21,7 @@ class Register < ActiveRecord::Base
   end
 
   def read
-    self.value = `i2cget -y 1 #{robot.adress} #{adress}`.delete("\n")
+    self.value = `i2cget -y 1 #{robot.fpga_adress} #{adress}`.delete("\n")
     self.save
   end
 end

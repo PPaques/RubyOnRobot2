@@ -8,7 +8,13 @@ class Gpio < ActiveRecord::Base
   validates :robot, :name, :description, :direction, :pin, :default_value,  :presence => true
   validates :name, :uniqueness => true
 
-  #@gpio_real = GpioInterface.new(:pin => :pin, :direction => self.direction) if Rails.env.production?
+  def after_initialize
+    @my_cache = {}
+    if Rails.env.production?
+      @gpio = Gpio.new(:pin => :pin, :direction => :in)   if direction
+      @gpio = Gpio.new(:pin => :pin, :direction => :out)  unless direction
+    end
+  end
 
   def set_value new_value
     new_value ||= default_value
@@ -19,22 +25,22 @@ class Gpio < ActiveRecord::Base
     end
   end
 
-  def on
-    value = @gpio_real.read if Rails.env.production?
-  #  self.save
+  def read
+    self.value = @gpio_real.read if Rails.env.production?
+    self.save
   end
 
   def off
     if direction
-    #  @gpio_real.off if Rails.env.production?
+      @gpio_real.off if Rails.env.production?
       self.value = false
       self.save
     end
   end
 
-  def read
+  def on
     if direction
-     # @gpio_real.on if Rails.env.production?
+      @gpio_real.on if Rails.env.production?
       self.value = true
       self.save
     end
