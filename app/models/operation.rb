@@ -12,7 +12,7 @@ class Operation < ActiveRecord::Base
   has_many :tasks,              :through    => :tasks_lists,  :dependent => :delete_all
   has_many :perturbations,                                    :dependent => :delete_all
 
-  validates :robot, :name, :description, :state_asked_id, :state_to_send_id, :operation_generic_id, :time_max, :presence => true
+  validates :robot, :name, :description, :state_asked, :time_max, :presence => true
   validates :name, :uniqueness => true
 
 
@@ -29,8 +29,8 @@ class Operation < ActiveRecord::Base
   end
 
   def perform
-    state_to_send.send_to_robot
-    operation_generic.perform
+    state_to_send.send_to_robot unless state_to_send.nil?
+    operation_generic.perform unless operation_generic.nil?
   end
 
   def state_reached?

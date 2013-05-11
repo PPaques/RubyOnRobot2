@@ -6,6 +6,7 @@ HIGH IMPORTANCE :
 
 MID IMPORTANCE :
 - bug gpio direction + value
+- operation generic : none
 
 LOW IMPORTANCE :
 
