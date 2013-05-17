@@ -53,7 +53,6 @@ class Gpio < ActiveRecord::Base
     end
   end
 
-  private
   def initialise_gpio
     if is_input?
       return GpioInterface.new(:pin => self.pin, :direction => :in)
