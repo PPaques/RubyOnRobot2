@@ -34,4 +34,22 @@ class WorkingOperationsController < ApplicationController
     end
     render nothing: true
   end
+
+  def start
+    @robot = Robot.first
+    if @robot.update_attributes(actif: true)
+      redirect_to working_operations_url, notice: 'Queue was successfully started.'
+    else
+      redirect_to working_operations_url, notice: 'Error : Not started'
+    end
+  end
+
+  def stop
+    @robot = Robot.first
+    if @robot.update_attributes(actif: false)
+      redirect_to working_operations_url, notice: 'Queue was successfully stopped.'
+    else
+      redirect_to working_operations_url, notice: 'Error : Not stopped'
+    end
+  end
 end

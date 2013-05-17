@@ -1,4 +1,13 @@
 .page-header
+
+  = link_to start_working_operations_path, :class => 'btn btn-primary' do
+    %i.icon-play.icon-white
+    start Queue
+
+  = link_to stop_working_operations_path, :class => 'btn btn-inverse' do
+    %i.icon-pause.icon-white
+    Stop Queue
+
   = link_to clear_working_operations_path, :class => 'btn btn-danger' do
     %i.icon-trash.icon-white
     Clear Queue

@@ -22,6 +22,14 @@ class Gpio < ActiveRecord::Base
     self.direction
   end
 
+  def direction_text
+    if is_input?
+      "Input"
+    else
+      "Output"
+    end
+  end
+
   def read
     if self.is_input?
       self.value = self.initialise_gpio.read if Rails.env.production?

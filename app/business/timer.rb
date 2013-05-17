@@ -9,14 +9,14 @@ class Timer
   # This is the entry point of all regulation
   def self.execute
     @robot = Robot.first
-    @robot.read_registers
+    @robot.read_all
 
 
     if @robot.is_actif?
 
       if @robot.has_perturbation?
-        @robot.active_perturbation.operation.perform
-      else
+        @robot.active_perturbation.operation.enqueue_top
+
         if @robot.has_current_operation? or @robot.has_next_operation?
 
           @robot.next_operation.perform if (!@robot.has_current_operation? and @robot.has_next_operation?)

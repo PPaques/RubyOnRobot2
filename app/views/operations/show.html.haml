@@ -15,11 +15,11 @@
   %dt Time max:
   %dd= @operation.time_max
   %dt State to send:
-  %dd= @operation.state_to_send.name
+  %dd= @operation.state_to_send.name if @operation.state_to_send
   %dt State asked:
-  %dd= @operation.state_asked.name
+  %dd= @operation.state_asked.name if @operation.state_asked
   %dt Operation Generic:
-  %dd= @operation.operation_generic.name
+  %dd= @operation.operation_generic.name if @operation.operation_generic
   %dt Operation error:
   %dd
     = link_to(@operation.operation_error.name, @operation.operation_error)  unless @operation.operation_error.blank?

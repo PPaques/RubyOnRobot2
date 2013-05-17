@@ -1,5 +1,39 @@
 .page-header
-  %h1 Listing robots
+  %h1 RubyOnRobot
+%h2 Démarrage rapide
+%h3 Connexion
+%p
+  Commencer par connecter le robot entièrement comme il est indiqué dans le dossier de rapport.
+  N'oublier pas de charger le programme sur le FPGA.
+%h3 Configuration
+%p
+  Configurer le robot en ajoutant tous les registres et gpios que vous allez utiliser dans l'onglet
+  = link_to "registers", registers_path
+  et
+  = link_to "gpios.", gpios_path
+  N'oublier de mettre la bonne adresse du module I2C dans le fpga.
+%h2 Principe de fonctionnement
+%p
+  Le noyeau estime qu'il existe des status pour le robot. Vous devez donc en définir dans l'onglet
+  = link_to "Statuses.", statuses_path
+  Une opération et le fait d'envoyer un status (écrire dans les registres et setter les gpios comme demandé) et d'attendre qu'un autre status apparaisse sur le robot. Il est évident qu'il y a un timeout sur ces status.
+%p
+  Il existe également des
+  =link_to "Operation génériques.", operation_generics_path
+  Elles sont en fait des appels aux classes qui sont stockée dans le dossier app/business.
+  Pour en ajouter une, il suffit de créer un fichier du nom de la class et d'ajouter une fonction dedans. On pourra alors lancer le script lors d'une opération.
+%p
+  Il se peut que vous n'ayez pas besoin de changement de status lors d'une opération. Il suffira de ne pas en mettre.
+
+%h3 Liste d'opérations
+%p
+  Afin de faciliter la programmation, il est possible de faire des listes d'opération. Je les ais appelé "tâche". Il est dès lors plus aisé de chainer toutes les opération dans la queue.
+
+%h3 Perturbations
+%p
+  C'est le menu qui permet d'ajouter une opération lorsqu'un capteur renvoie une certaine valeur. Malheureusement je n'ai pas pu tester cette partie.
+
+%h2 Bon amusement
 
 %table.table.table-bordered.table-striped
   %thead

@@ -12,14 +12,24 @@ class Robot < ActiveRecord::Base
 
   validates :name,:fpga_adress, :presence => true
 
+  def read_all
+    self.read_registers
+    self.read_gpios
+  end
+
+  def read_gpios
+    if Rails.env.production?
+      gpios.each do |gpio|
+        gpio.read if gpio.is_input?
+      end
+    end
+  end
 
   def read_registers
     if Rails.env.production?
-
-    registers.each do |register|
-      register.read
-    end
-
+      registers.each do |register|
+        register.read
+      end
     end
   end
 

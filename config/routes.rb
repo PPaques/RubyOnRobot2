@@ -5,6 +5,8 @@ Cecile::Application.routes.draw do
     collection do
       get :clear
       post :sort
+      get :start
+      get :stop
     end
   end
   resources :tasks do

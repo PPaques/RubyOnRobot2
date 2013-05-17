@@ -16,6 +16,11 @@ class Operation < ActiveRecord::Base
   validates :name, :uniqueness => true
 
 
+  def enqueue_top
+    operation = WorkingOperation.create(:robot => robot, :operation => self, :status => 'IDLE')
+    operation.move_to_top
+  end
+
   def enqueue
     WorkingOperation.create(:robot => robot, :operation => self, :status => 'IDLE')
   end
