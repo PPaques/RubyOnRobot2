@@ -12,7 +12,7 @@ class Operation < ActiveRecord::Base
   has_many :tasks,              :through    => :tasks_lists,  :dependent => :delete_all
   has_many :perturbations,                                    :dependent => :delete_all
 
-  validates :robot, :name, :description, :state_asked, :time_max, :presence => true
+  validates :robot, :name, :description, :time_max, :presence => true
   validates :name, :uniqueness => true
 
 
