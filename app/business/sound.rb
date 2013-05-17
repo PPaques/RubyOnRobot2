@@ -10,7 +10,7 @@ class Sound
     options[:filename] ||= "tache_success.wav"
 
     filename = Rails.root.join('public', 'audio', options[:filename])
-    system("aplay filename > /dev/null 2> /dev/null &")
+    system("aplay #{filename} > /dev/null 2> /dev/null &")
   end
 
   def say options
