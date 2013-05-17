@@ -14,7 +14,7 @@ set :default_environment, {
 
 # Application set
 set :application, "RubyOnRobot"
-set :repository,  "git@github.com:Pirou01/RubyOnRobot2.git"
+set :repository,  "git://github.com/Pirou01/RubyOnRobot2.git"
 ssh_options[:forward_agent] = true
 set :copy_exclude, [".git", "spec"]
 set :deploy_to,   "/var/www/rubyonrobot"
@@ -35,7 +35,7 @@ role :app, "www.rubyonrobot.com"                          # This may be the same
 role :db,  "www.rubyonrobot.com", :primary => true # This is where Rails migrations will run
 
 # clean up after each deploy
-after "deploy:restart",         "deploy:cleanup"
+#after "deploy:restart",         "deploy:cleanup"
 after "deploy:finalize_update", "deploy:symlink_directories_and_files"
 after "deploy:create_symlink",  "deploy:resymlink"
 after "deploy:stop", "clockwork:stop"
