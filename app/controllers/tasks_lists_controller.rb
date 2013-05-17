@@ -22,7 +22,7 @@ class TasksListsController < ApplicationController
     @task_list.destroy
 
     respond_to do |format|
-      format.html { request.referer tasks_url }
+      format.html { redirect_to request.referer}
       format.json { head :no_content }
     end
   end

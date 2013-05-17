@@ -24,10 +24,10 @@
   %tbody#tasks_list{'data-update-url' => sort_tasks_lists_url }
     - @task.tasks_lists.each do |task_list|
       = content_tag_for :tr, task_list do
-        %td.span3.handle [drag] 
+        %td.span3.handle [drag]
         %td.span8= task_list.operation.name
         %td.span1
-          = link_to tasks_list_url, :confirm => 'Are you sure?', :method => :delete do
+          = link_to tasks_list_url(task_list), :confirm => 'Are you sure?', :method => :delete do
             .btn.btn-mini.btn-danger
               %i.icon-remove.icon-white
 
