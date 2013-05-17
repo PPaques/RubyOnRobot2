@@ -20,7 +20,7 @@ class StatusGpio < ActiveRecord::Base
   end
 
   def set_value
-    gpio.set_value value
+    gpio.set_value self.value
   end
 
   def read
