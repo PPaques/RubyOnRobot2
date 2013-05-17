@@ -7,7 +7,7 @@ class Sound
   # +options :+
   #     +file+ : file to read (must be in public repository)
   def play options
-    options[:filename] ||= "no.wav"
+    options[:filename] ||= "tache_success.wav"
 
     filename = Rails.root.join('public', 'audio', options[:filename])
     system("aplay filename > /dev/null 2> /dev/null &")

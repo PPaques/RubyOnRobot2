@@ -10,7 +10,6 @@ class Gpio < ActiveRecord::Base
   validates :direction, inclusion: { in: [true, false], message: "can't be blank" }
 
   def set_value new_value
-    new_value ||= default_value
     if new_value
       self.on
     else
