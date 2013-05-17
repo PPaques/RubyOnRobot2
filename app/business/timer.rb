@@ -42,7 +42,7 @@ class Timer
             else
               if @robot.current_operation.timeout?
                   if @robot.current_operation.has_operation_error?
-                    WorkingOperation.new(:robot => @robot, :operation => @robot.current_operation.operation_error, :status => 'IDLE').insert_at(@robot.current_operation.position+1)
+                    WorkingOperation.new(:robot => @robot, :operation => @robot.current_operation.operation.operation_error, :status => 'IDLE').insert_at(@robot.current_operation.position+1)
                   end
                 @robot.current_operation.failed
 

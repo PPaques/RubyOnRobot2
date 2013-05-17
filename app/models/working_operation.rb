@@ -68,6 +68,10 @@ class WorkingOperation < ActiveRecord::Base
     self.operation.has_operation_error?
   end
 
+  def operation_error
+    self.operation.operation_error
+  end
+
   def timeout?
     if Time.now > self.run_until
       true
