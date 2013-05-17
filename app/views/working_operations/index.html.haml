@@ -11,7 +11,12 @@
   = link_to clear_working_operations_path, :class => 'btn btn-danger' do
     %i.icon-trash.icon-white
     Clear Queue
-  %h1 Queue
+  %h1
+    Queue
+    - if Robot.first.is_actif?
+      .label.label-success ON
+    - else
+      .label.label-important OFF
 
 %table.table.table-bordered.table-striped
   %thead
