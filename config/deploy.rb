@@ -11,10 +11,10 @@ default_run_options[:pty] = true
 set :default_environment, {
   'PATH' => "/home/pi/.gem/ruby/2.0.0/bin/:$PATH"
 }
-  
+
 # Application set
 set :application, "RubyOnRobot"
-set :repository,  "git@bitbucket.org:ppaques/robotecam.git"
+set :repository,  "git@github.com:Pirou01/RubyOnRobot2.git"
 ssh_options[:forward_agent] = true
 set :copy_exclude, [".git", "spec"]
 set :deploy_to,   "/var/www/rubyonrobot"
@@ -44,14 +44,14 @@ after "deploy:restart", "clockwork:restart"
 after "deploy:restart", "unicorn:reload" # app IS NOT preloaded
 after "deploy:restart", "unicorn:restart"  # app preloaded
 
- 
+
 namespace :clockwork do
   desc "Stop clockwork"
   task :stop, :roles => :app, :on_no_matching_servers => :continue do
     run "kill -TERM $(cat #{current_path}/tmp/pids/clockwork.pid)"
     run "rm #{current_path}/tmp/pids/clockwork.pid"
   end
- 
+
   desc "Start clockwork"
   task :start, :roles => :app, :on_no_matching_servers => :continue do
     run "cd #{current_path} && export RAILS_ENV=production && (nohup clockwork config/clock.rb & echo $! > #{current_path}/tmp/pids/clockwork.pid) > /dev/null 2>&1 && sleep 1", :pty => true
