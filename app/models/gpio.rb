@@ -32,14 +32,16 @@ class Gpio < ActiveRecord::Base
 
   def read
     if self.is_input?
-      self.value = self.initialise_gpio.read if Rails.env.production?
+      gpio = GpioInterface.new(:pin => self.pin, :direction => :in) if Rails.env.production?
+      self.value = gpio.read if Rails.env.production?
       self.save
     end
   end
 
   def off
     unless is_input?
-      self.initialise_gpio.off if Rails.env.production?
+      gpio = GpioInterface.new(:pin => self.pin, :direction => :out) if Rails.env.production?
+      gpio.off if Rails.env.production?
       self.value = false
       self.save
     end
@@ -47,17 +49,11 @@ class Gpio < ActiveRecord::Base
 
   def on
     unless is_input?
-      self.initialise_gpio.on if Rails.env.production?
+      gpio = GpioInterface.new(:pin => self.pin, :direction => :out) if Rails.env.production?
+      gpio.on if Rails.env.production?
       self.value = true
       self.save
     end
   end
 
-  def initialise_gpio
-    if is_input?
-      return GpioInterface.new(:pin => self.pin, :direction => :in)
-    else
-      return GpioInterface.new(:pin => self.pin, :direction => :out)
-    end
-  end
 end
