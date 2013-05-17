@@ -42,7 +42,7 @@ class Operation < ActiveRecord::Base
     if self.state_asked
       return state_asked.is_reached?
     else
-      false
+      true
     end
   end
 end

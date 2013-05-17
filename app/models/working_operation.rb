@@ -69,7 +69,7 @@ class WorkingOperation < ActiveRecord::Base
   end
 
   def timeout?
-    if Time.now < run_until
+    if Time.now > self.run_until
       true
     else
       false
