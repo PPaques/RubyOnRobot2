@@ -15,6 +15,9 @@ class Timer
     if @robot.is_actif?
 
       if @robot.has_perturbation?
+        # si il y a une opération actuelle, on la met en échoué
+        @robot.current_operation.failed if @robot.has_current_operation?
+
         # si il y a une perturbation on fait fait l'action et on fait dormir le robot le temps max de la perturbation.
         if @robot.has_next_operation?
           WorkingOperation.new(:robot => @robot, :operation => @robot.active_perturbation.operation, :status => 'IDLE').insert_at(@robot.next_operation.position)
