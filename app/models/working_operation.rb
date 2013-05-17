@@ -49,7 +49,7 @@ class WorkingOperation < ActiveRecord::Base
       self.started_at = Time.now
       self.status = "CURRENT"
       self.run_until = Time.now + 2.years
-      self.run_until = Time.now + operation.time_max.to_f/1000 if operation.time_max > 0
+      self.run_until = Time.now + operation.time_max if operation.time_max > 0
       self.save
 
       operation.perform

@@ -39,6 +39,10 @@ class Operation < ActiveRecord::Base
   end
 
   def state_reached?
-    state_asked.is_reached?
+    if self.state_asked
+      return state_asked.is_reached?
+    else
+      false
+    end
   end
 end
