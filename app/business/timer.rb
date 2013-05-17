@@ -29,20 +29,22 @@ class Timer
       else
         if @robot.has_current_operation? or @robot.has_next_operation?
 
-          @robot.next_operation.perform if (!@robot.has_current_operation? and @robot.has_next_operation?)
-          @robot.current_operation = @robot.next_operation
-
-          if @robot.current_operation.state_reached?
-            @robot.current_operation.finished
-            @robot.next_operation.perform if @robot.next_operation
+          if !@robot.has_current_operation? and @robot.has_next_operation?
+            # on envoie la prochaine opération si il y en a une
+            @robot.next_operation.perform
           else
-            if @robot.current_operation.timeout?
-                if @robot.current_operation.has_operation_error?
-                  WorkingOperation.new(:robot => @robot, :operation => @robot.current_operation.operation_error, :status => 'IDLE').insert_at(@robot.current_operation.position+1)
-                end
-              @robot.current_operation.failed
-
+            if @robot.current_operation.state_reached?
+              @robot.current_operation.finished
               @robot.next_operation.perform if @robot.next_operation
+            else
+              if @robot.current_operation.timeout?
+                  if @robot.current_operation.has_operation_error?
+                    WorkingOperation.new(:robot => @robot, :operation => @robot.current_operation.operation_error, :status => 'IDLE').insert_at(@robot.current_operation.position+1)
+                  end
+                @robot.current_operation.failed
+
+                @robot.next_operation.perform if @robot.has_next_operation?
+              end
             end
           end
         end
