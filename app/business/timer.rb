@@ -30,6 +30,7 @@ class Timer
         if @robot.has_current_operation? or @robot.has_next_operation?
 
           @robot.next_operation.perform if (!@robot.has_current_operation? and @robot.has_next_operation?)
+          @robot.current_operation = @robot.next_operation
 
           if @robot.current_operation.state_reached?
             @robot.current_operation.finished
