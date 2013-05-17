@@ -1,4 +1,6 @@
-# -*- encoding : utf-8 -*-
+# This class was extracted from :
+# https://github.com/jwhitehorn/pi_piper
+# Copyright (c) 2013, Jason Whitehorn All rights reserved.
 class GpioInterface
    attr_reader :pin, :last_value, :value, :direction, :invert
 
