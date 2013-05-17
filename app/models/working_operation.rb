@@ -61,11 +61,11 @@ class WorkingOperation < ActiveRecord::Base
   end
 
   def state_reached?
-    operation.state_reached?
+    self.operation.state_reached?
   end
 
   def has_operation_error?
-    operation.has_operation_error?
+    self.operation.has_operation_error?
   end
 
   def timeout?
