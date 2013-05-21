@@ -1,4 +1,4 @@
-Cecile::Application.routes.draw do
+Rubyonrobot::Application.routes.draw do
   resources :perturbations
   resources :operation_generics
   resources :working_operations do

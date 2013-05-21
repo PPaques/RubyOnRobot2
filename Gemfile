@@ -50,6 +50,7 @@ group :development, :test do
   gem 'capistrano_colors'
   gem 'capistrano-unicorn', :require => false
   gem 'better_errors'
+  gem 'rails-erd'
 end
 
 

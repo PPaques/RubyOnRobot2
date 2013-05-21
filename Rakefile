@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Cecile::Application.load_tasks
+Rubyonrobot::Application.load_tasks
