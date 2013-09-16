@@ -16,8 +16,7 @@ gem 'simple_form'
 gem 'haml-rails'
 gem 'nested_form'
 gem 'acts_as_list'
-gem 'better_logging'
-gem 'colored'
+gem 'daemons-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.

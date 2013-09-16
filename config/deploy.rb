@@ -38,26 +38,25 @@ role :db,  "www.rubyonrobot.com", :primary => true # This is where Rails migrati
 #after "deploy:restart",         "deploy:cleanup"
 after "deploy:finalize_update", "deploy:symlink_directories_and_files"
 after "deploy:create_symlink",  "deploy:resymlink"
-after "deploy:stop", "clockwork:stop"
-after "deploy:start", "clockwork:start"
-after "deploy:restart", "clockwork:restart"
+after "deploy:stop", "timer:stop"
+after "deploy:start", "timer:start"
+after "deploy:restart", "timer:restart"
 after "deploy:restart", "unicorn:reload" # app IS NOT preloaded
 after "deploy:restart", "unicorn:restart"  # app preloaded
 
 
-namespace :clockwork do
-  desc "Stop clockwork"
+namespace :timer do
+  desc "Stop timer daemon"
   task :stop, :roles => :app, :on_no_matching_servers => :continue do
-    run "kill -TERM $(cat #{current_path}/tmp/pids/clockwork.pid)"
-    run "rm #{current_path}/tmp/pids/clockwork.pid"
+    run "cd #{current_path} && export RAILS_ENV=production && rake daemon:timer:stop"
   end
 
-  desc "Start clockwork"
+  desc "Start timer daemon"
   task :start, :roles => :app, :on_no_matching_servers => :continue do
-    run "cd #{current_path} && export RAILS_ENV=production && (nohup clockwork config/clock.rb & echo $! > #{current_path}/tmp/pids/clockwork.pid) > /dev/null 2>&1 && sleep 1", :pty => true
+    run "cd #{current_path} && export RAILS_ENV=production && rake daemon:timer:start", :pty => true
   end
 
-  desc "Restart clockwork"
+  desc "Restart timer daemon"
   task :restart, :roles => :app, :on_no_matching_servers => :continue do
     stop
     start
