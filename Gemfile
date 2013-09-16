@@ -6,9 +6,6 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-# to use a worker to get states periodicly
-gem 'clockwork',  '~> 0.5.0'
-gem 'tzinfo',     '~> 0.3.35'
 # use for communication
 gem 'bootstrap-generators', '~> 2.3'
 gem 'jquery-rails'

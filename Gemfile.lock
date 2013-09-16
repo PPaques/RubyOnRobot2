@@ -49,8 +49,6 @@ GEM
       capistrano
     capistrano_colors (0.5.5)
     choice (0.1.6)
-    clockwork (0.5.0)
-      tzinfo (~> 0.3.35)
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -171,7 +169,6 @@ DEPENDENCIES
   capistrano
   capistrano-unicorn
   capistrano_colors
-  clockwork (~> 0.5.0)
   coffee-rails (~> 3.2.1)
   daemons-rails
   haml-rails
@@ -183,6 +180,5 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   simple_form
   turbo-sprockets-rails3
-  tzinfo (~> 0.3.35)
   uglifier (>= 1.0.3)
   unicorn
