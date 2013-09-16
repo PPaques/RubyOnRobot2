@@ -28,7 +28,7 @@ class StatusGpio < ActiveRecord::Base
   end
 
   def is_reached?
-    if value = gpio.value
+    if value == gpio.value
       true
     else
       false

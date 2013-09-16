@@ -24,10 +24,9 @@ class Timer
           @robot.active_perturbation.operation.enqueue_top
         end
 
-        @robot.next_operation.perform # effectue
-        sleep @robot.current_operation.operation.time_max # fait dormir
-        @robot.current_operation.finished
-      
+        next_operation = @robot.next_operation # effectue
+        next_operation.perform
+        sleep next_operation.operation.time_max # fait dormir
       else
         if @robot.has_current_operation? or @robot.has_next_operation?
 

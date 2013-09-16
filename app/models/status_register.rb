@@ -24,7 +24,7 @@ class StatusRegister < ActiveRecord::Base
   end
 
   def is_reached?
-    if self.value = self.register.value
+    if self.value == self.register.value
       true
     else
       false

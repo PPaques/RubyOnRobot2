@@ -22,11 +22,11 @@ class Status < ActiveRecord::Base
     reached = true
 
     registers.each do |register|
-      reached = false if register.is_reached?
+      reached = false if !register.is_reached?
     end
 
     gpios.each do |gpio|
-      reached = false if gpio.is_reached?
+      reached = false if !gpio.is_reached?
     end
 
     reached
