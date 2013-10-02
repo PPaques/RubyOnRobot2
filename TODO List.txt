@@ -2,7 +2,6 @@ TODO List
                           [Obj. ]  (Réalisé)
 HIGH IMPORTANCE :
 - Global Integration Test [26/04]
-- Verify GPIO             [26/04]
 
 MID IMPORTANCE :
 - bug gpio direction + value
